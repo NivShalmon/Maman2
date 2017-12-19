@@ -1,0 +1,26 @@
+package techbook;
+
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+
+public abstract class AbstractTest {
+
+    @BeforeClass
+    public static void createTables()
+    {
+        Solution.createTables();
+    }
+
+    @AfterClass
+    public static void dropTables()
+    {
+        Solution.dropTables();
+    }
+
+    @Before
+    public void clearTables()
+    {
+        Solution.clearTables();
+    }
+}
