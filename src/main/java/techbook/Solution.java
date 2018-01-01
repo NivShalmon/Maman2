@@ -16,7 +16,11 @@ import static techbook.business.ReturnValue.*;
 public class Solution {
 
     private static int getSQLState(SQLException e) {
-        return Integer.parseInt(e.getSQLState());
+        try {
+            return Integer.parseInt(e.getSQLState());
+        } catch (NumberFormatException nfe) {
+            return -1;
+        }
     }
 
     public static void createTables() {
@@ -34,34 +38,82 @@ public class Solution {
                      "    name text NOT NULL,\n" +
                      "    studentId integer NOT NULL,\n" +
                      "    FOREIGN KEY (studentId) REFERENCES Students(id),\n" +
-                     "    UNIQUE (name,studentId)\n" +
-                     ")");) {
+                     "    PRIMARY KEY (name,studentId)\n" +
+                     ")");
+             PreparedStatement friends = c.prepareStatement("CREATE TABLE Friends\n" +
+                     "(\n" +
+                     "    id1 integer NOT NULL,\n" +
+                     "    id2 integer NOT NULL,\n" +
+                     "    FOREIGN KEY (id1) REFERENCES Students(id),\n" +
+                     "    FOREIGN KEY (id2) REFERENCES Students(id),\n" +
+                     "    CHECK (id1 != id2)," +
+                     "    UNIQUE(id1,id2)\n" +
+                     ")");
+             PreparedStatement posts = c.prepareStatement("CREATE TABLE posts\n" +
+                     "(\n" +
+                     "    id integer,\n" +
+                     "    author integer,\n" +
+                     "    text text NOT NULL,\n" +
+                     "    date TIMESTAMP NOT NULL,\n" +
+                     "    PRIMARY KEY (id),\n" +
+                     "    CHECK (id > 0),\n" +
+                     "    FOREIGN KEY (author) REFERENCES Students(id)\n" +
+                     ")");
+             PreparedStatement postedInGroup = c.prepareStatement("CREATE TABLE postedInGroup\n" +
+                     "(\n" +
+                     "    postId integer,\n" +
+                     "    groupName text,\n" +
+                     "    studentId integer,\n" +
+                     "    FOREIGN KEY (postId) REFERENCES posts(id),\n" +
+                     "    FOREIGN KEY (groupName,studentId) REFERENCES Groups(name,studentId)\n" +
+                     ")")) {
             student.execute();
             groups.execute();
+            friends.execute();
+            posts.execute();
+            postedInGroup.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    private static PreparedStatement truncate(String table, Connection c) throws SQLException {
+        return c.prepareStatement(String.format("TRUNCATE TABLE %s CASCADE", table));
+    }
 
     public static void clearTables() {
         try (Connection c = DBConnector.getConnection();
-             PreparedStatement student = c.prepareStatement("TRUNCATE TABLE Students CASCADE");
-             PreparedStatement groups = c.prepareStatement("TRUNCATE TABLE Groups CASCADE")) {
+             PreparedStatement student = truncate("Students", c);
+             PreparedStatement groups = truncate("Groups", c);
+             PreparedStatement friends = truncate("Friends", c);
+             PreparedStatement posts = truncate("posts", c);
+             PreparedStatement postedInGroup = truncate("postedInGroup", c)) {
             groups.execute();
             student.execute();
+            friends.execute();
+            posts.execute();
+            postedInGroup.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    private static PreparedStatement drop(String table, Connection c) throws SQLException {
+        return c.prepareStatement(String.format("DROP TABLE %s CASCADE", table));
+    }
 
     public static void dropTables() {
         try (Connection c = DBConnector.getConnection();
-             PreparedStatement student = c.prepareStatement("DROP TABLE Students CASCADE");
-             PreparedStatement groups = c.prepareStatement("DROP TABLE Groups CASCADE")) {
-            student.execute();
+             PreparedStatement student = drop("Students", c);
+             PreparedStatement groups = drop("Groups", c);
+             PreparedStatement friends = drop("Friends", c);
+             PreparedStatement posts = drop("posts", c);
+             PreparedStatement postedInGroup = drop("postedInGroup", c)) {
             groups.execute();
+            student.execute();
+            friends.execute();
+            posts.execute();
+            postedInGroup.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -123,7 +175,7 @@ public class Solution {
     public static ReturnValue deleteStudent(Integer studentId) {
         try (Connection c = DBConnector.getConnection();
              PreparedStatement deleteFromGroups = c.prepareStatement("DELETE FROM Groups\n" +
-                     String.format("WHERE studentId = %d",studentId));
+                     String.format("WHERE studentId = %d", studentId));
              PreparedStatement deleteStudent = c.prepareStatement("DELETE FROM Students\n" +
                      String.format("WHERE id = %d;", studentId))) {
             deleteFromGroups.execute();
@@ -168,7 +220,7 @@ public class Solution {
      */
     public static ReturnValue updateStudentFaculty(Student student) {
         try (Connection c = DBConnector.getConnection();
-             PreparedStatement addToFaculty = addToGroup(student.getId(),student.getFaculty(), c)) {
+             PreparedStatement addToFaculty = addToGroup(student.getId(), student.getFaculty(), c)) {
             addToFaculty.execute();
         } catch (SQLException e) {
             int sqlState = getSQLState(e);
@@ -196,8 +248,37 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue addPost(Post post, String groupName) {
-
-        return null;
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement addPost = c.prepareStatement("INSERT INTO posts\n" +
+                     String.format("VALUES (%d,%d,%s,%s)", post.getId(), post.getAuthor(),
+                             makeStringForSQL(post.getText()),
+                             makeStringForSQL(post.getTimeStamp() == null ? null : post.getTimeStamp().toString())));
+             PreparedStatement postToGroup = c.prepareStatement("INSERT INTO postedInGroup\n" +
+                     String.format("VALUES (%d,%s,%d)",post.getId(),makeStringForSQL(groupName),post.getAuthor()));
+             PreparedStatement isInGroup = c.prepareStatement("SELECT COUNT(studentId)\n" +
+                     "FROM Groups\n" +
+                     String.format("WHERE studentId = %d AND name=%s",post.getAuthor(),makeStringForSQL(groupName)))) {
+            if (groupName != null){//we need to make sure user is a member of the group
+                ResultSet rs = isInGroup.executeQuery();
+                rs.next();
+                if(rs.getInt(1) == 0){
+                    return NOT_EXISTS;
+                }
+            }
+            addPost.execute();
+            postToGroup.execute();
+        } catch (SQLException e) {
+            int sqlState = getSQLState(e);
+            if (sqlState == CHECK_VIOLATION.getValue() || sqlState == NOT_NULL_VIOLATION.getValue())
+                return BAD_PARAMS;
+            if (sqlState == FOREIGN_KEY_VIOLATION.getValue())
+                return NOT_EXISTS;
+            if (sqlState == UNIQUE_VIOLATION.getValue())
+                return ALREADY_EXISTS;
+            e.printStackTrace();
+            return ERROR;
+        }
+        return OK;
     }
 
 
@@ -210,8 +291,13 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue deletePost(Integer postId) {
+        try (Connection c = DBConnector.getConnection();) {
 
-        return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return ERROR;
+        }
+        return OK;
     }
 
 
@@ -239,6 +325,13 @@ public class Solution {
         return null;
     }
 
+    private static int max(int i1, int i2) {
+        return i1 > i2 ? i1 : i2;
+    }
+
+    private static int min(int i1, int i2) {
+        return i1 < i2 ? i1 : i2;
+    }
 
     /**
      * Establishes a friendship relationship between two different students
@@ -252,8 +345,21 @@ public class Solution {
      */
 
     public static ReturnValue makeAsFriends(Integer studentId1, Integer studentId2) {
-
-        return null;
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("INSERT INTO Friendship\n" +
+                     String.format("VALUES (%d,%d)"), max(studentId1, studentId2), min(studentId1, studentId2))) {
+            s.execute();
+        } catch (SQLException e) {
+            int sqlState = getSQLState(e);
+            if (sqlState == FOREIGN_KEY_VIOLATION.getValue())
+                return NOT_EXISTS;
+            if (sqlState == UNIQUE_VIOLATION.getValue())
+                return ALREADY_EXISTS;
+            if (sqlState == CHECK_VIOLATION.getValue())
+                return BAD_PARAMS;
+            return ERROR;
+        }
+        return OK;
     }
 
 

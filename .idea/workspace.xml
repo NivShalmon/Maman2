@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5d8dd05-d185-47c4-92d9-986140db370a" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/techbook/Solution.java" afterPath="$PROJECT_DIR$/src/main/java/techbook/Solution.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,15 +14,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="58">
+              <caret line="249" column="37" lean-forward="false" selection-start-line="249" selection-start-column="30" selection-end-line="249" selection-end-column="37" />
               <folding>
-                <element signature="method#createTables#0;class#Solution#0" expanded="false" />
-                <element signature="method#clearTables#0;class#Solution#0" expanded="false" />
-                <element signature="method#dropTables#0;class#Solution#0" expanded="false" />
+                <element signature="method#truncate#0;class#Solution#0" expanded="false" />
+                <element signature="method#drop#0;class#Solution#0" expanded="false" />
+                <element signature="e#4912#4913#0" expanded="true" />
+                <element signature="e#4971#4972#0" expanded="true" />
                 <element signature="method#addToGroup#0;class#Solution#0" expanded="false" />
                 <element signature="method#addStudentStatement#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#addStudent#0;class#Solution#0" expanded="false" />
@@ -35,14 +34,14 @@
                 <element signature="method#getStudentProfile#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
                 <element signature="method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
-                <element signature="docComment;method#addPost#0;class#Solution#0" expanded="false" />
-                <element signature="method#addPost#0;class#Solution#0" expanded="false" />
-                <element signature="docComment;method#deletePost#0;class#Solution#0" expanded="false" />
-                <element signature="method#deletePost#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#getPost#0;class#Solution#0" expanded="false" />
                 <element signature="method#getPost#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#updatePost#0;class#Solution#0" expanded="false" />
                 <element signature="method#updatePost#0;class#Solution#0" expanded="false" />
+                <element signature="e#13091#13092#0" expanded="true" />
+                <element signature="e#13131#13132#0" expanded="true" />
+                <element signature="e#13177#13178#0" expanded="true" />
+                <element signature="e#13217#13218#0" expanded="true" />
                 <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
                 <element signature="method#makeAsFriends#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
@@ -52,23 +51,23 @@
                 <element signature="docComment;method#unlikePost#0;class#Solution#0" expanded="false" />
                 <element signature="method#unlikePost#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#joinGroup#0;class#Solution#0" expanded="false" />
+                <element signature="e#16215#16216#0" expanded="true" />
+                <element signature="e#16242#16243#0" expanded="true" />
                 <element signature="docComment;method#leaveGroup#0;class#Solution#0" expanded="false" />
                 <element signature="method#leaveGroup#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#getStudentFeed#0;class#Solution#0" expanded="false" />
+                <element signature="e#16972#16973#0" expanded="true" />
+                <element signature="e#16999#17000#0" expanded="true" />
                 <element signature="docComment;method#getGroupFeed#0;class#Solution#0" expanded="false" />
+                <element signature="e#17305#17306#0" expanded="true" />
+                <element signature="e#17332#17333#0" expanded="true" />
                 <element signature="docComment;method#getPeopleYouMayKnowList#0;class#Solution#0" expanded="false" />
+                <element signature="e#17977#17978#0" expanded="true" />
+                <element signature="e#18004#18005#0" expanded="true" />
                 <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
+                <element signature="e#18764#18765#0" expanded="true" />
+                <element signature="e#18791#18792#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/techbook/SimpleTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="21" column="7" lean-forward="false" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -76,9 +75,26 @@
       <file leaf-file-name="Maman2_Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="328" column="31" lean-forward="true" selection-start-line="328" selection-start-column="31" selection-end-line="328" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="102">
+              <caret line="373" column="0" lean-forward="false" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
+              <folding>
+                <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
+                <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
+                <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
+                <element signature="e#7687#7719#0" expanded="false" />
+                <element signature="e#9669#9687#0" expanded="false" />
+                <element signature="e#10713#10734#0" expanded="false" />
+                <element signature="e#10936#10958#0" expanded="false" />
+                <element signature="e#12826#12842#0" expanded="false" />
+                <element signature="e#13032#13051#0" expanded="false" />
+                <element signature="e#13247#13266#0" expanded="false" />
+                <element signature="e#13553#13594#0" expanded="false" />
+                <element signature="e#14165#14184#0" expanded="false" />
+                <element signature="e#14751#14789#0" expanded="false" />
+                <element signature="e#15485#15503#0" expanded="false" />
+                <element signature="e#15750#15769#0" expanded="false" />
+                <element signature="method#advancedApiTest#0;class#Maman2_Test#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -231,6 +247,15 @@
               <item name="Maman2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Maman2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="techbook" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Maman2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Maman2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -288,7 +313,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SimpleTest">
+  <component name="RunManager" selected="JUnit.Maman2_Test">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -497,9 +522,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
         <item index="3" class="java.lang.String" itemvalue="Application.Example" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.PostTest" />
       </list>
@@ -591,39 +616,40 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Maman2_Test - 2018.01.01 at 21h 46m 40s.xml">
+    <history-entry file="Maman2_Test - 2018.01.01 at 22h 43m 32s.xml">
       <configuration name="Maman2_Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 35m 55s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 11m 21s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 36m 45s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 12m 19s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 38m 18s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 12m 40s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 41m 53s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 28m 57s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 42m 55s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 29m 44s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 44m 04s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 30m 18s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 44m 19s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 40m 50s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 45m 52s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 41m 56s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 21h 46m 24s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.01 at 22h 42m 47s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -633,7 +659,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905295" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42696628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42696628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -676,7 +702,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/techbook/Solution.java</url>
-          <line>283</line>
+          <line>389</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -687,21 +713,11 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="20" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/data/DBConnector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3925">
@@ -884,13 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/StudentIdPair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="33" column="40" lean-forward="false" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Logger.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/techbook/TestUtils.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/techbook/FeedTest.java" />
@@ -914,16 +923,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/techbook/PostTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -943,21 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/AbstractTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#201#202#0" expanded="false" />
-            <element signature="e#240#241#0" expanded="false" />
-            <element signature="e#299#300#0" expanded="false" />
-            <element signature="e#336#337#0" expanded="false" />
-            <element signature="e#385#386#0" expanded="false" />
-            <element signature="e#423#424#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -983,14 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/data/PostgreSQLErrorCodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/sql/ResultSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -1007,14 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/sql/PreparedStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="60" column="47" lean-forward="true" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-629">
@@ -1026,22 +994,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/SimpleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="45" lean-forward="true" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/StudentIdPair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="1009" column="26" lean-forward="false" selection-start-line="1009" selection-start-column="26" selection-end-line="1009" selection-end-column="26" />
+          <folding>
+            <element signature="e#37816#37817#0" expanded="false" />
+            <element signature="e#37859#37860#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Post.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/AbstractTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#240#241#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="328" column="31" lean-forward="true" selection-start-line="328" selection-start-column="31" selection-end-line="328" selection-end-column="31" />
+        <state relative-caret-position="102">
+          <caret line="373" column="0" lean-forward="false" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
+          <folding>
+            <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
+            <element signature="e#7687#7719#0" expanded="false" />
+            <element signature="e#9669#9687#0" expanded="false" />
+            <element signature="e#10713#10734#0" expanded="false" />
+            <element signature="e#10936#10958#0" expanded="false" />
+            <element signature="e#12826#12842#0" expanded="false" />
+            <element signature="e#13032#13051#0" expanded="false" />
+            <element signature="e#13247#13266#0" expanded="false" />
+            <element signature="e#13553#13594#0" expanded="false" />
+            <element signature="e#14165#14184#0" expanded="false" />
+            <element signature="e#14751#14789#0" expanded="false" />
+            <element signature="e#15485#15503#0" expanded="false" />
+            <element signature="e#15750#15769#0" expanded="false" />
+            <element signature="method#advancedApiTest#0;class#Maman2_Test#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/data/PostgreSQLErrorCodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/sql/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="94" column="8" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="58">
+          <caret line="249" column="37" lean-forward="false" selection-start-line="249" selection-start-column="30" selection-end-line="249" selection-end-column="37" />
           <folding>
-            <element signature="method#createTables#0;class#Solution#0" expanded="false" />
-            <element signature="method#clearTables#0;class#Solution#0" expanded="false" />
-            <element signature="method#dropTables#0;class#Solution#0" expanded="false" />
+            <element signature="method#truncate#0;class#Solution#0" expanded="false" />
+            <element signature="method#drop#0;class#Solution#0" expanded="false" />
+            <element signature="e#4912#4913#0" expanded="true" />
+            <element signature="e#4971#4972#0" expanded="true" />
             <element signature="method#addToGroup#0;class#Solution#0" expanded="false" />
             <element signature="method#addStudentStatement#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#addStudent#0;class#Solution#0" expanded="false" />
@@ -1052,14 +1099,14 @@
             <element signature="method#getStudentProfile#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
             <element signature="method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
-            <element signature="docComment;method#addPost#0;class#Solution#0" expanded="false" />
-            <element signature="method#addPost#0;class#Solution#0" expanded="false" />
-            <element signature="docComment;method#deletePost#0;class#Solution#0" expanded="false" />
-            <element signature="method#deletePost#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#getPost#0;class#Solution#0" expanded="false" />
             <element signature="method#getPost#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#updatePost#0;class#Solution#0" expanded="false" />
             <element signature="method#updatePost#0;class#Solution#0" expanded="false" />
+            <element signature="e#13091#13092#0" expanded="true" />
+            <element signature="e#13131#13132#0" expanded="true" />
+            <element signature="e#13177#13178#0" expanded="true" />
+            <element signature="e#13217#13218#0" expanded="true" />
             <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
             <element signature="method#makeAsFriends#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
@@ -1069,21 +1116,23 @@
             <element signature="docComment;method#unlikePost#0;class#Solution#0" expanded="false" />
             <element signature="method#unlikePost#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#joinGroup#0;class#Solution#0" expanded="false" />
+            <element signature="e#16215#16216#0" expanded="true" />
+            <element signature="e#16242#16243#0" expanded="true" />
             <element signature="docComment;method#leaveGroup#0;class#Solution#0" expanded="false" />
             <element signature="method#leaveGroup#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#getStudentFeed#0;class#Solution#0" expanded="false" />
+            <element signature="e#16972#16973#0" expanded="true" />
+            <element signature="e#16999#17000#0" expanded="true" />
             <element signature="docComment;method#getGroupFeed#0;class#Solution#0" expanded="false" />
+            <element signature="e#17305#17306#0" expanded="true" />
+            <element signature="e#17332#17333#0" expanded="true" />
             <element signature="docComment;method#getPeopleYouMayKnowList#0;class#Solution#0" expanded="false" />
+            <element signature="e#17977#17978#0" expanded="true" />
+            <element signature="e#18004#18005#0" expanded="true" />
             <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
+            <element signature="e#18764#18765#0" expanded="true" />
+            <element signature="e#18791#18792#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/SimpleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="21" column="7" lean-forward="false" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
