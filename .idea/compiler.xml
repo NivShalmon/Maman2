@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="236363_winter17-18_hw2" />
+        <module name="Maman2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="236363_winter17-18_hw2" target="1.8" />
+      <module name="Maman2" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
