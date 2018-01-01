@@ -2,6 +2,7 @@ package techbook;
 
 import techbook.business.*;
 import techbook.data.DBConnector;
+
 import static techbook.data.PostgreSQLErrorCodes.*;
 
 import java.sql.Connection;
@@ -14,6 +15,9 @@ import static techbook.business.ReturnValue.*;
 
 public class Solution {
 
+    private static int getSQLState(SQLException e) {
+        return Integer.parseInt(e.getSQLState());
+    }
 
     public static void createTables() {
         try (Connection c = DBConnector.getConnection();
@@ -29,8 +33,8 @@ public class Solution {
                      "(\n" +
                      "    name text NOT NULL,\n" +
                      "    studentId integer NOT NULL,\n" +
-                     "    PRIMARY KEY (name)," +
-                     "    FOREIGN KEY (studentId) REFERENCES Students(id)\n" +
+                     "    FOREIGN KEY (studentId) REFERENCES Students(id),\n" +
+                     "    UNIQUE (name,studentId)\n" +
                      ")");) {
             student.execute();
             groups.execute();
@@ -63,9 +67,19 @@ public class Solution {
         }
     }
 
-    private static PreparedStatement addToFacultyStatement(Student student, Connection c) throws SQLException{
-        return  c.prepareStatement("INSERT INTO group\n" +
-                String.format("VALUES(\'%s\',%s)",student.getFaculty(),student.getId()));
+    private static String makeStringForSQL(String s) {
+        return s == null ? "NULL" : "\'" + s + "\'";
+    }
+
+    private static PreparedStatement addToGroup(int id, String group, Connection c) throws SQLException {
+        return c.prepareStatement("INSERT INTO Groups\n" +
+                String.format("VALUES(%s,%d)", makeStringForSQL(group), id));
+    }
+
+    private static PreparedStatement addStudentStatement(Student student, Connection c) throws SQLException {
+        return c.prepareStatement("INSERT INTO Students\n" +
+                String.format("VALUES(%d,%s,%s);", student.getId(),
+                        makeStringForSQL(student.getName()), makeStringForSQL(student.getFaculty())));
     }
 
     /**
@@ -78,17 +92,18 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue addStudent(Student student) {
-        try(Connection c = DBConnector.getConnection();
-            PreparedStatement addStudent = c.prepareStatement("INSERT INTO Students\n" +
-                    String.format ("VALUES(%d,\'%s\',\'%s\');",student.getId(),student.getName(),student.getFaculty()));
-            PreparedStatement addToFaculty = addToFacultyStatement(student,c)){
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement addStudent = addStudentStatement(student, c);
+             PreparedStatement addToFaculty = addToGroup(student.getId(), student.getFaculty(), c)) {
             addStudent.execute();
             addToFaculty.execute();
         } catch (SQLException e) {
-            if (e.getErrorCode() == UNIQUE_VIOLATION.getValue())
+            int sqlState = getSQLState(e);
+            if (sqlState == UNIQUE_VIOLATION.getValue())
                 return ALREADY_EXISTS;
-            if (e.getErrorCode() == NOT_NULL_VIOLATION.getValue() || e.getErrorCode() == CHECK_VIOLATION.getValue())
+            if (sqlState == NOT_NULL_VIOLATION.getValue() || sqlState == CHECK_VIOLATION.getValue())
                 return BAD_PARAMS;
+            e.printStackTrace();
             return ERROR;
         }
         return OK;
@@ -106,10 +121,13 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue deleteStudent(Integer studentId) {
-        try(Connection c = DBConnector.getConnection();
-            PreparedStatement s = c.prepareStatement("DELETE FROM Students\n" +
-                    String.format ("WHERE id = %d;",studentId))){
-            return s.executeUpdate() != 0 ? OK : NOT_EXISTS;
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement deleteFromGroups = c.prepareStatement("DELETE FROM Groups\n" +
+                     String.format("WHERE studentId = %d",studentId));
+             PreparedStatement deleteStudent = c.prepareStatement("DELETE FROM Students\n" +
+                     String.format("WHERE id = %d;", studentId))) {
+            deleteFromGroups.execute();
+            return deleteStudent.executeUpdate() != 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             return ERROR;
         }
@@ -122,9 +140,9 @@ public class Solution {
      * output: The student profile in case the student exists. BadStudent otherwise
      */
     public static Student getStudentProfile(Integer studentId) {
-        try(Connection c = DBConnector.getConnection();
-            PreparedStatement s = c.prepareStatement("SELECT * FROM Students\n" +
-                    String.format ("WHERE id=%d;",studentId))){
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("SELECT * FROM Students\n" +
+                     String.format("WHERE id=%d;", studentId))) {
             ResultSet rs = s.executeQuery();
             rs.next();
             Student std = new Student();
@@ -149,12 +167,17 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue updateStudentFaculty(Student student) {
-        try(Connection c = DBConnector.getConnection();
-            PreparedStatement addToFaculty = addToFacultyStatement(student,c)){
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement addToFaculty = addToGroup(student.getId(),student.getFaculty(), c)) {
             addToFaculty.execute();
         } catch (SQLException e) {
-            if (e.getErrorCode() == NOT_NULL_VIOLATION.getValue() || e.getErrorCode() == FOREIGN_KEY_VIOLATION.getValue())
+            int sqlState = getSQLState(e);
+            if (sqlState == FOREIGN_KEY_VIOLATION.getValue())
+                return NOT_EXISTS;
+            if (sqlState == NOT_NULL_VIOLATION.getValue())
                 return BAD_PARAMS;
+            if (sqlState == UNIQUE_VIOLATION.getValue())
+                return ALREADY_EXISTS;
             return ERROR;
         }
         return OK;
