@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5d8dd05-d185-47c4-92d9-986140db370a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/techbook/Solution.java" afterPath="$PROJECT_DIR$/src/main/java/techbook/Solution.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java" afterPath="$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-272">
-              <caret line="443" column="29" lean-forward="false" selection-start-line="443" selection-start-column="29" selection-end-line="443" selection-end-column="29" />
+            <state relative-caret-position="102">
+              <caret line="518" column="25" lean-forward="true" selection-start-line="518" selection-start-column="25" selection-end-line="518" selection-end-column="25" />
               <folding>
                 <element signature="method#truncate#0;class#Solution#0" expanded="false" />
                 <element signature="method#drop#0;class#Solution#0" expanded="false" />
@@ -40,33 +38,28 @@
                 <element signature="e#15182#15183#0" expanded="true" />
                 <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
-                <element signature="docComment;method#joinGroup#0;class#Solution#0" expanded="false" />
-                <element signature="e#20313#20314#0" expanded="true" />
-                <element signature="e#20340#20341#0" expanded="true" />
-                <element signature="docComment;method#leaveGroup#0;class#Solution#0" expanded="false" />
-                <element signature="method#leaveGroup#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#getStudentFeed#0;class#Solution#0" expanded="false" />
-                <element signature="e#21070#21071#0" expanded="true" />
-                <element signature="e#21097#21098#0" expanded="true" />
+                <element signature="e#22042#22043#0" expanded="true" />
+                <element signature="e#22069#22070#0" expanded="true" />
                 <element signature="docComment;method#getGroupFeed#0;class#Solution#0" expanded="false" />
-                <element signature="e#21403#21404#0" expanded="true" />
-                <element signature="e#21430#21431#0" expanded="true" />
+                <element signature="e#22375#22376#0" expanded="true" />
+                <element signature="e#22402#22403#0" expanded="true" />
                 <element signature="docComment;method#getPeopleYouMayKnowList#0;class#Solution#0" expanded="false" />
-                <element signature="e#22075#22076#0" expanded="true" />
-                <element signature="e#22102#22103#0" expanded="true" />
+                <element signature="e#23047#23048#0" expanded="true" />
+                <element signature="e#23074#23075#0" expanded="true" />
                 <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
-                <element signature="e#22862#22863#0" expanded="true" />
-                <element signature="e#22889#22890#0" expanded="true" />
+                <element signature="e#23834#23835#0" expanded="true" />
+                <element signature="e#23861#23862#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Maman2_Test.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Maman2_Test.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
               <folding>
                 <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
                 <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
@@ -296,7 +289,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Maman2_Test.returnValuesTest">
+  <component name="RunManager" selected="JUnit.Maman2_Test.generalSuccessTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -505,8 +498,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
         <item index="4" class="java.lang.String" itemvalue="Application.Example" />
@@ -599,12 +592,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Maman2_Test - 2018.01.02 at 11h 23m 07s.xml">
-      <configuration name="Maman2_Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Maman2_Test - 2018.01.02 at 11h 23m 47s.xml">
-      <configuration name="Maman2_Test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 26m 24s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
@@ -626,12 +613,19 @@
     <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 38m 19s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 48m 53s.xml">
+      <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="Maman2_Test_returnValuesTest - 2018.01.02 at 11h 38m 30s.xml">
+      <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.02 at 11h 48m 38s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -641,7 +635,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905295" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42696628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42696628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1031,33 +1025,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding>
-            <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
-            <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
-            <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
-            <element signature="e#7712#7744#0" expanded="false" />
-            <element signature="e#9694#9712#0" expanded="false" />
-            <element signature="e#10738#10759#0" expanded="false" />
-            <element signature="e#10961#10983#0" expanded="false" />
-            <element signature="e#12851#12867#0" expanded="false" />
-            <element signature="e#13057#13076#0" expanded="false" />
-            <element signature="e#13272#13291#0" expanded="false" />
-            <element signature="e#14190#14209#0" expanded="false" />
-            <element signature="e#14776#14814#0" expanded="false" />
-            <element signature="e#15510#15528#0" expanded="false" />
-            <element signature="e#15775#15794#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="443" column="29" lean-forward="false" selection-start-line="443" selection-start-column="29" selection-end-line="443" selection-end-column="29" />
+        <state relative-caret-position="102">
+          <caret line="518" column="25" lean-forward="true" selection-start-line="518" selection-start-column="25" selection-end-line="518" selection-end-column="25" />
           <folding>
             <element signature="method#truncate#0;class#Solution#0" expanded="false" />
             <element signature="method#drop#0;class#Solution#0" expanded="false" />
@@ -1077,23 +1048,41 @@
             <element signature="e#15182#15183#0" expanded="true" />
             <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
-            <element signature="docComment;method#joinGroup#0;class#Solution#0" expanded="false" />
-            <element signature="e#20313#20314#0" expanded="true" />
-            <element signature="e#20340#20341#0" expanded="true" />
-            <element signature="docComment;method#leaveGroup#0;class#Solution#0" expanded="false" />
-            <element signature="method#leaveGroup#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#getStudentFeed#0;class#Solution#0" expanded="false" />
-            <element signature="e#21070#21071#0" expanded="true" />
-            <element signature="e#21097#21098#0" expanded="true" />
+            <element signature="e#22042#22043#0" expanded="true" />
+            <element signature="e#22069#22070#0" expanded="true" />
             <element signature="docComment;method#getGroupFeed#0;class#Solution#0" expanded="false" />
-            <element signature="e#21403#21404#0" expanded="true" />
-            <element signature="e#21430#21431#0" expanded="true" />
+            <element signature="e#22375#22376#0" expanded="true" />
+            <element signature="e#22402#22403#0" expanded="true" />
             <element signature="docComment;method#getPeopleYouMayKnowList#0;class#Solution#0" expanded="false" />
-            <element signature="e#22075#22076#0" expanded="true" />
-            <element signature="e#22102#22103#0" expanded="true" />
+            <element signature="e#23047#23048#0" expanded="true" />
+            <element signature="e#23074#23075#0" expanded="true" />
             <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
-            <element signature="e#22862#22863#0" expanded="true" />
-            <element signature="e#22889#22890#0" expanded="true" />
+            <element signature="e#23834#23835#0" expanded="true" />
+            <element signature="e#23861#23862#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+          <folding>
+            <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
+            <element signature="e#7712#7744#0" expanded="false" />
+            <element signature="e#9694#9712#0" expanded="false" />
+            <element signature="e#10738#10759#0" expanded="false" />
+            <element signature="e#10961#10983#0" expanded="false" />
+            <element signature="e#12851#12867#0" expanded="false" />
+            <element signature="e#13057#13076#0" expanded="false" />
+            <element signature="e#13272#13291#0" expanded="false" />
+            <element signature="e#14190#14209#0" expanded="false" />
+            <element signature="e#14776#14814#0" expanded="false" />
+            <element signature="e#15510#15528#0" expanded="false" />
+            <element signature="e#15775#15794#0" expanded="false" />
           </folding>
         </state>
       </provider>

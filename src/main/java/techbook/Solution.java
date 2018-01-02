@@ -485,7 +485,20 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue joinGroup(Integer studentId, String groupName) {
-        return null;
+        try(Connection c = DBConnector.getConnection();
+        PreparedStatement s = c.prepareStatement("INSERT INTO groups\n" +
+                String.format("VALUES(%s,%d)",makeStringForSQL(groupName),studentId))) {
+            s.execute();
+            return OK;
+        } catch (SQLException e) {
+            int sqlState = getSQLState(e);
+            if (sqlState == FOREIGN_KEY_VIOLATION.getValue())
+                return NOT_EXISTS;
+            if (sqlState == UNIQUE_VIOLATION.getValue())
+                return ALREADY_EXISTS;
+            e.printStackTrace();
+            return ERROR;
+        }
     }
 
     /**
@@ -497,8 +510,14 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue leaveGroup(Integer studentId, String groupName) {
-
-        return null;
+        try(Connection c = DBConnector.getConnection();
+            PreparedStatement s = c.prepareStatement("DELETE FROM groups\n" +
+                    String.format("WHERE name=%s AND studentID=%d",makeStringForSQL(groupName),studentId))) {
+            return s.executeUpdate() > 0 ? OK : NOT_EXISTS;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return ERROR;
+        }
     }
 
 
