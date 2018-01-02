@@ -1,5 +1,6 @@
 package techbook;
 
+import com.sun.xml.internal.fastinfoset.tools.FI_SAX_Or_XML_SAX_SAXEvent;
 import techbook.business.*;
 import techbook.data.DBConnector;
 
@@ -46,7 +47,7 @@ public class Solution {
                      "    id2 integer NOT NULL,\n" +
                      "    FOREIGN KEY (id1) REFERENCES Students(id),\n" +
                      "    FOREIGN KEY (id2) REFERENCES Students(id),\n" +
-                     "    CHECK (id1 != id2)," +
+                     "    CHECK (id1 > id2)," +
                      "    UNIQUE(id1,id2)\n" +
                      ")");
              PreparedStatement posts = c.prepareStatement("CREATE TABLE posts\n" +
@@ -178,9 +179,18 @@ public class Solution {
         try (Connection c = DBConnector.getConnection();
              PreparedStatement deleteFromGroups = c.prepareStatement("DELETE FROM Groups\n" +
                      String.format("WHERE studentId = %d", studentId));
+             PreparedStatement deleteLikes = c.prepareStatement("DELETE FROM likes\n" +
+                     String.format("WHERE studentId = %d", studentId));
+             PreparedStatement deletePosts = c.prepareStatement("DELETE FROM posts\n" +
+                     String.format("WHERE author = %d", studentId));
+             PreparedStatement deleteFriends = c.prepareStatement("DELETE FROM friends\n" +
+                     String.format("WHERE id1 = %d OR id2 = %d", studentId,studentId));
              PreparedStatement deleteStudent = c.prepareStatement("DELETE FROM Students\n" +
                      String.format("WHERE id = %d;", studentId))) {
             deleteFromGroups.execute();
+            deleteLikes.execute();
+            deleteFriends.execute();
+            deletePosts.execute();
             return deleteStudent.executeUpdate() != 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             return ERROR;
@@ -283,8 +293,11 @@ public class Solution {
      */
     public static ReturnValue deletePost(Integer postId) {
         try (Connection c = DBConnector.getConnection();
+             PreparedStatement deleteLikes = c.prepareStatement("DELETE FROM likes\n" +
+                     String.format("WHERE postId = %d", postId));
              PreparedStatement deletePost = c.prepareStatement("DELETE FROM posts\n" +
                      String.format("WHERE id = %d", postId))) {
+            deleteLikes.execute();
             return deletePost.executeUpdate() > 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -367,8 +380,8 @@ public class Solution {
 
     public static ReturnValue makeAsFriends(Integer studentId1, Integer studentId2) {
         try (Connection c = DBConnector.getConnection();
-             PreparedStatement s = c.prepareStatement("INSERT INTO Friendship\n" +
-                     String.format("VALUES (%d,%d)"), max(studentId1, studentId2), min(studentId1, studentId2))) {
+             PreparedStatement s = c.prepareStatement("INSERT INTO Friends\n" +
+                     String.format("VALUES (%d,%d)", max(studentId1, studentId2), min(studentId1, studentId2)))) {
             s.execute();
         } catch (SQLException e) {
             int sqlState = getSQLState(e);
@@ -378,6 +391,7 @@ public class Solution {
                 return ALREADY_EXISTS;
             if (sqlState == CHECK_VIOLATION.getValue())
                 return BAD_PARAMS;
+            e.printStackTrace();
             return ERROR;
         }
         return OK;
@@ -393,9 +407,17 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue makeAsNotFriends(Integer studentId1, Integer studentId2) {
-
-        return null;
-
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("DELETE FROM Friends\n" +
+                     String.format("WHERE id1 = %d AND id2 = %d", max(studentId1, studentId2), min(studentId1, studentId2)))) {
+            return s.executeUpdate() > 0 ? OK : NOT_EXISTS;
+        } catch (SQLException e) {
+            int sqlState = getSQLState(e);
+            if (sqlState == FOREIGN_KEY_VIOLATION.getValue())
+                return NOT_EXISTS;
+            e.printStackTrace();
+            return ERROR;
+        }
     }
 
     /**
@@ -408,8 +430,28 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue likePost(Integer studentId, Integer postId) {
-        return null;
-
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("INSERT INTO likes(studentId,postId)\n" +
+                     String.format("SELECT %d,id\n",studentId) +
+                     "FROM posts\n" +
+                     "WHERE \n" +
+                     String.format("(groupName IS NULL AND id = %d)\n",postId) +
+                     "OR EXISTS\n" +
+                     "(\n" +
+                     "SELECT * FROM (groups\n" +
+                     "INNER JOIN posts ON groups.name = posts.groupName)\n" +
+                     String.format("WHERE groups.studentId = %d AND posts.id = %d\n", studentId, postId) +
+                     ");")) {
+            return s.executeUpdate() > 0 ? OK : NOT_EXISTS;
+        } catch (SQLException e) {
+            int sqlState = getSQLState(e);
+            if (sqlState == FOREIGN_KEY_VIOLATION.getValue())
+                return NOT_EXISTS;
+            if (sqlState == UNIQUE_VIOLATION.getValue())
+                return ALREADY_EXISTS;
+            e.printStackTrace();
+            return ERROR;
+        }
     }
 
     /**
@@ -421,8 +463,16 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue unlikePost(Integer studentId, Integer postId) {
-
-        return null;
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("DELETE FROM likes\n" +
+                     String.format("WHERE studentId = %d AND postId = %d", studentId, postId))) {
+            return s.executeUpdate() > 0 ? OK : NOT_EXISTS;
+        } catch (SQLException e) {
+            if (getSQLState(e) == FOREIGN_KEY_VIOLATION.getValue())
+                return NOT_EXISTS;
+            e.printStackTrace();
+            return ERROR;
+        }
     }
 
     /**

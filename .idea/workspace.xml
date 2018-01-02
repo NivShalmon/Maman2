@@ -19,51 +19,69 @@
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-646">
-              <caret line="317" column="34" lean-forward="false" selection-start-line="317" selection-start-column="34" selection-end-line="317" selection-end-column="34" />
+            <state relative-caret-position="-272">
+              <caret line="443" column="29" lean-forward="false" selection-start-line="443" selection-start-column="29" selection-end-line="443" selection-end-column="29" />
               <folding>
                 <element signature="method#truncate#0;class#Solution#0" expanded="false" />
                 <element signature="method#drop#0;class#Solution#0" expanded="false" />
-                <element signature="e#4983#4984#0" expanded="true" />
-                <element signature="e#5042#5043#0" expanded="true" />
+                <element signature="e#5056#5057#0" expanded="true" />
+                <element signature="e#5115#5116#0" expanded="true" />
                 <element signature="method#addToGroup#0;class#Solution#0" expanded="false" />
                 <element signature="method#addStudentStatement#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#addStudent#0;class#Solution#0" expanded="false" />
                 <element signature="method#addStudent#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#deleteStudent#0;class#Solution#0" expanded="false" />
-                <element signature="method#deleteStudent#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#getStudentProfile#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
                 <element signature="method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
-                <element signature="e#14190#14191#0" expanded="true" />
-                <element signature="e#14230#14231#0" expanded="true" />
-                <element signature="e#14276#14277#0" expanded="true" />
-                <element signature="e#14316#14317#0" expanded="true" />
+                <element signature="e#15056#15057#0" expanded="true" />
+                <element signature="e#15096#15097#0" expanded="true" />
+                <element signature="e#15142#15143#0" expanded="true" />
+                <element signature="e#15182#15183#0" expanded="true" />
                 <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
-                <element signature="method#makeAsFriends#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
-                <element signature="method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
-                <element signature="docComment;method#likePost#0;class#Solution#0" expanded="false" />
-                <element signature="method#likePost#0;class#Solution#0" expanded="false" />
-                <element signature="docComment;method#unlikePost#0;class#Solution#0" expanded="false" />
-                <element signature="method#unlikePost#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#joinGroup#0;class#Solution#0" expanded="false" />
-                <element signature="e#17314#17315#0" expanded="true" />
-                <element signature="e#17341#17342#0" expanded="true" />
+                <element signature="e#20313#20314#0" expanded="true" />
+                <element signature="e#20340#20341#0" expanded="true" />
                 <element signature="docComment;method#leaveGroup#0;class#Solution#0" expanded="false" />
                 <element signature="method#leaveGroup#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#getStudentFeed#0;class#Solution#0" expanded="false" />
-                <element signature="e#18071#18072#0" expanded="true" />
-                <element signature="e#18098#18099#0" expanded="true" />
+                <element signature="e#21070#21071#0" expanded="true" />
+                <element signature="e#21097#21098#0" expanded="true" />
                 <element signature="docComment;method#getGroupFeed#0;class#Solution#0" expanded="false" />
-                <element signature="e#18404#18405#0" expanded="true" />
-                <element signature="e#18431#18432#0" expanded="true" />
+                <element signature="e#21403#21404#0" expanded="true" />
+                <element signature="e#21430#21431#0" expanded="true" />
                 <element signature="docComment;method#getPeopleYouMayKnowList#0;class#Solution#0" expanded="false" />
-                <element signature="e#19076#19077#0" expanded="true" />
-                <element signature="e#19103#19104#0" expanded="true" />
+                <element signature="e#22075#22076#0" expanded="true" />
+                <element signature="e#22102#22103#0" expanded="true" />
                 <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
-                <element signature="e#19863#19864#0" expanded="true" />
-                <element signature="e#19890#19891#0" expanded="true" />
+                <element signature="e#22862#22863#0" expanded="true" />
+                <element signature="e#22889#22890#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Maman2_Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <folding>
+                <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
+                <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
+                <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
+                <element signature="e#7712#7744#0" expanded="false" />
+                <element signature="e#9694#9712#0" expanded="false" />
+                <element signature="e#10738#10759#0" expanded="false" />
+                <element signature="e#10961#10983#0" expanded="false" />
+                <element signature="e#12851#12867#0" expanded="false" />
+                <element signature="e#13057#13076#0" expanded="false" />
+                <element signature="e#13272#13291#0" expanded="false" />
+                <element signature="e#14190#14209#0" expanded="false" />
+                <element signature="e#14776#14814#0" expanded="false" />
+                <element signature="e#15510#15528#0" expanded="false" />
+                <element signature="e#15775#15794#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -92,6 +110,9 @@
       <find>Groups</find>
       <find>getName</find>
       <find>addPost</find>
+      <find>makeAs</find>
+      <find>likePost</find>
+      <find>likes</find>
     </findStrings>
     <replaceStrings>
       <replace>student</replace>
@@ -210,15 +231,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="techbook" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Maman2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Maman2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="techbook" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Maman2" type="b2602c69:ProjectViewProjectNode" />
@@ -494,8 +506,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
         <item index="4" class="java.lang.String" itemvalue="Application.Example" />
       </list>
@@ -587,40 +599,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Maman2_Test - 2018.01.02 at 10h 27m 27s.xml">
+    <history-entry file="Maman2_Test - 2018.01.02 at 11h 23m 07s.xml">
       <configuration name="Maman2_Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test - 2018.01.02 at 10h 33m 14s.xml">
+    <history-entry file="Maman2_Test - 2018.01.02 at 11h 23m 47s.xml">
       <configuration name="Maman2_Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 10h 24m 17s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 26m 24s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 10h 25m 14s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 29m 21s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 10h 26m 54s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 32m 55s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 10h 27m 06s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 33m 36s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 10h 32m 44s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 36m 01s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.02 at 10h 33m 42s.xml">
-      <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 36m 08s.xml">
+      <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.02 at 10h 34m 03s.xml">
-      <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 38m 19s.xml">
+      <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.02 at 10h 36m 14s.xml">
+    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.02 at 11h 38m 30s.xml">
       <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -672,12 +683,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/techbook/Solution.java</url>
-          <line>410</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/techbook/PostTest.java</url>
           <line>32</line>
           <properties />
@@ -685,23 +690,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java</url>
-          <line>120</line>
+          <line>138</line>
           <properties />
-          <option name="timeStamp" value="25" />
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="27" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Feed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="43" lean-forward="false" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
@@ -983,14 +981,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/sql/PreparedStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="94" column="8" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Post.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1020,15 +1010,31 @@
         <state relative-caret-position="116">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#240#241#0" expanded="true" />
+            <element signature="e#240#241#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/sql/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="94" column="8" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="393" column="28" lean-forward="false" selection-start-line="393" selection-start-column="28" selection-end-line="393" selection-end-column="28" />
+        <state relative-caret-position="68">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
             <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
             <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
@@ -1040,7 +1046,6 @@
             <element signature="e#12851#12867#0" expanded="false" />
             <element signature="e#13057#13076#0" expanded="false" />
             <element signature="e#13272#13291#0" expanded="false" />
-            <element signature="e#13578#13619#0" expanded="false" />
             <element signature="e#14190#14209#0" expanded="false" />
             <element signature="e#14776#14814#0" expanded="false" />
             <element signature="e#15510#15528#0" expanded="false" />
@@ -1051,51 +1056,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-646">
-          <caret line="317" column="34" lean-forward="false" selection-start-line="317" selection-start-column="34" selection-end-line="317" selection-end-column="34" />
+        <state relative-caret-position="-272">
+          <caret line="443" column="29" lean-forward="false" selection-start-line="443" selection-start-column="29" selection-end-line="443" selection-end-column="29" />
           <folding>
             <element signature="method#truncate#0;class#Solution#0" expanded="false" />
             <element signature="method#drop#0;class#Solution#0" expanded="false" />
-            <element signature="e#4983#4984#0" expanded="true" />
-            <element signature="e#5042#5043#0" expanded="true" />
+            <element signature="e#5056#5057#0" expanded="true" />
+            <element signature="e#5115#5116#0" expanded="true" />
             <element signature="method#addToGroup#0;class#Solution#0" expanded="false" />
             <element signature="method#addStudentStatement#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#addStudent#0;class#Solution#0" expanded="false" />
             <element signature="method#addStudent#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#deleteStudent#0;class#Solution#0" expanded="false" />
-            <element signature="method#deleteStudent#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#getStudentProfile#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
             <element signature="method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
-            <element signature="e#14190#14191#0" expanded="true" />
-            <element signature="e#14230#14231#0" expanded="true" />
-            <element signature="e#14276#14277#0" expanded="true" />
-            <element signature="e#14316#14317#0" expanded="true" />
+            <element signature="e#15056#15057#0" expanded="true" />
+            <element signature="e#15096#15097#0" expanded="true" />
+            <element signature="e#15142#15143#0" expanded="true" />
+            <element signature="e#15182#15183#0" expanded="true" />
             <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
-            <element signature="method#makeAsFriends#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
-            <element signature="method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
-            <element signature="docComment;method#likePost#0;class#Solution#0" expanded="false" />
-            <element signature="method#likePost#0;class#Solution#0" expanded="false" />
-            <element signature="docComment;method#unlikePost#0;class#Solution#0" expanded="false" />
-            <element signature="method#unlikePost#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#joinGroup#0;class#Solution#0" expanded="false" />
-            <element signature="e#17314#17315#0" expanded="true" />
-            <element signature="e#17341#17342#0" expanded="true" />
+            <element signature="e#20313#20314#0" expanded="true" />
+            <element signature="e#20340#20341#0" expanded="true" />
             <element signature="docComment;method#leaveGroup#0;class#Solution#0" expanded="false" />
             <element signature="method#leaveGroup#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#getStudentFeed#0;class#Solution#0" expanded="false" />
-            <element signature="e#18071#18072#0" expanded="true" />
-            <element signature="e#18098#18099#0" expanded="true" />
+            <element signature="e#21070#21071#0" expanded="true" />
+            <element signature="e#21097#21098#0" expanded="true" />
             <element signature="docComment;method#getGroupFeed#0;class#Solution#0" expanded="false" />
-            <element signature="e#18404#18405#0" expanded="true" />
-            <element signature="e#18431#18432#0" expanded="true" />
+            <element signature="e#21403#21404#0" expanded="true" />
+            <element signature="e#21430#21431#0" expanded="true" />
             <element signature="docComment;method#getPeopleYouMayKnowList#0;class#Solution#0" expanded="false" />
-            <element signature="e#19076#19077#0" expanded="true" />
-            <element signature="e#19103#19104#0" expanded="true" />
+            <element signature="e#22075#22076#0" expanded="true" />
+            <element signature="e#22102#22103#0" expanded="true" />
             <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
-            <element signature="e#19863#19864#0" expanded="true" />
-            <element signature="e#19890#19891#0" expanded="true" />
+            <element signature="e#22862#22863#0" expanded="true" />
+            <element signature="e#22889#22890#0" expanded="true" />
           </folding>
         </state>
       </provider>
