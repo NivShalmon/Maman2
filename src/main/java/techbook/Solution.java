@@ -197,6 +197,13 @@ public class Solution {
         }
     }
 
+    private static Student makeStudent(ResultSet rs) throws SQLException {
+        Student std = new Student();
+        std.setId(rs.getInt("id"));
+        std.setName(rs.getString("name"));
+        std.setFaculty(rs.getString("faculty"));
+        return std;
+    }
 
     /**
      * Returns the student profile by the given id
@@ -210,11 +217,7 @@ public class Solution {
             ResultSet rs = s.executeQuery();
             if (!rs.next())
                 return Student.badStudent();
-            Student std = new Student();
-            std.setId(studentId);
-            std.setName(rs.getString("name"));
-            std.setFaculty(rs.getString("faculty"));
-            return std;
+            return makeStudent(rs);
         } catch (SQLException e) {
             return Student.badStudent();
         }
@@ -589,12 +592,52 @@ public class Solution {
      */
     public static ArrayList<Student> getPeopleYouMayKnowList(Integer studentId) {
         try (Connection c = DBConnector.getConnection();
-             PreparedStatement s = c.prepareStatement("")) {
+             PreparedStatement s = c.prepareStatement("WITH RECURSIVE friendship AS (\n" +
+                     "\tSELECT id1,id2\n" +
+                     "\tFROM friends\n" +
+                     "\tUNION\n" +
+                     "\tSELECT id2,id1\n" +
+                     "\tFROM friends\n" +
+                     "), find_paths(source, destination, length, path, cycle) AS (\n" +
+                     "    SELECT id1, id2, 1,ARRAY[id1],false\n" +
+                     "    FROM friendship f\n" +
+                     "\tUNION ALL\n" +
+                     "\tSELECT fp.source, f.id2, fp.length + 1,path || f.id1, f.id1 = ANY(path) OR f.id2 = ANY(path)\n" +
+                     "\tFROM friendship f, find_paths fp\n" +
+                     "\tWHERE f.id1 = fp.destination AND NOT cycle\n" +
+                     "), haveSharedFriend AS (\n" +
+                     "\tSELECT source, destination\n" +
+                     "\tFROM find_paths fp\n" +
+                     "\tWHERE length = 2 AND NOT cycle\n" +
+                     "\tAND NOT EXISTS (\n" +
+                     "\t\tSELECT *\n" +
+                     "\t\tFROM find_paths fp2\n" +
+                     "\t\tWHERE fp2.source = fp.source AND fp2.destination = fp.destination AND length = 1\n" +
+                     "\t)\n" +
+                     ")\n" +
+                     "SELECT DISTINCT s.* \n" +
+                     "FROM (\n" +
+                     "\tstudents s\n" +
+                     "\tINNER JOIN\n" +
+                     "\thaveSharedFriend f\n" +
+                     "\tON s.id = f.source)\n" +
+                     String.format("WHERE f.destination = %d\n",studentId) +
+                     "AND EXISTS (\n" +
+                     "\tSELECT *\n" +
+                     "\tFROM groups A, groups B\n" +
+                     "\tWHERE A.studentId = f.source \n" +
+                     "\tAND B.studentId = f.destination\n" +
+                     "\tAND A.name = B.name)")) {
+            ArrayList<Student> l = new ArrayList<>();
+            ResultSet rs = s.executeQuery();
+            while(rs.next())
+                l.add(makeStudent(rs));
+            return l;
         } catch (SQLException e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
-        return null;
+
     }
 
     /**

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f5d8dd05-d185-47c4-92d9-986140db370a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/techbook/Solution.java" afterPath="$PROJECT_DIR$/src/main/java/techbook/Solution.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java" afterPath="$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="636" column="43" lean-forward="false" selection-start-line="636" selection-start-column="43" selection-end-line="636" selection-end-column="43" />
+            <state relative-caret-position="136">
+              <caret line="610" column="54" lean-forward="false" selection-start-line="610" selection-start-column="54" selection-end-line="610" selection-end-column="54" />
               <folding>
                 <element signature="method#truncate#0;class#Solution#0" expanded="false" />
                 <element signature="method#drop#0;class#Solution#0" expanded="false" />
@@ -33,10 +32,10 @@
                 <element signature="docComment;method#getStudentProfile#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
                 <element signature="method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
-                <element signature="e#15074#15075#0" expanded="true" />
-                <element signature="e#15114#15115#0" expanded="true" />
-                <element signature="e#15160#15161#0" expanded="true" />
-                <element signature="e#15200#15201#0" expanded="true" />
+                <element signature="e#15177#15178#0" expanded="true" />
+                <element signature="e#15217#15218#0" expanded="true" />
+                <element signature="e#15263#15264#0" expanded="true" />
+                <element signature="e#15303#15304#0" expanded="true" />
                 <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
@@ -45,28 +44,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Maman2_Test.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Maman2_Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="242" column="0" lean-forward="false" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="224" column="0" lean-forward="false" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
               <folding>
                 <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
                 <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
                 <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
-                <element signature="e#7716#7748#0" expanded="false" />
+                <element signature="e#7712#7744#0" expanded="false" />
                 <element signature="method#returnValuesTest#0;class#Maman2_Test#0" expanded="false" />
-                <element signature="e#9698#9716#0" expanded="false" />
-                <element signature="e#10742#10763#0" expanded="false" />
-                <element signature="e#10965#10987#0" expanded="false" />
-                <element signature="e#12855#12871#0" expanded="false" />
-                <element signature="e#13061#13080#0" expanded="false" />
-                <element signature="e#13276#13295#0" expanded="false" />
-                <element signature="e#13582#13623#0" expanded="false" />
-                <element signature="e#14194#14213#0" expanded="false" />
-                <element signature="e#14780#14818#0" expanded="false" />
-                <element signature="e#15514#15532#0" expanded="false" />
-                <element signature="e#15779#15798#0" expanded="false" />
+                <element signature="e#9694#9712#0" expanded="false" />
+                <element signature="e#10738#10759#0" expanded="false" />
+                <element signature="e#10961#10983#0" expanded="false" />
+                <element signature="e#12851#12867#0" expanded="false" />
+                <element signature="e#13057#13076#0" expanded="false" />
+                <element signature="e#13272#13291#0" expanded="false" />
+                <element signature="e#13578#13619#0" expanded="false" />
+                <element signature="e#14190#14209#0" expanded="false" />
+                <element signature="e#14776#14814#0" expanded="false" />
+                <element signature="e#15510#15528#0" expanded="false" />
+                <element signature="e#15775#15794#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -283,7 +282,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Maman2_Test.generalSuccessTest">
+  <component name="RunManager" selected="JUnit.Maman2_Test">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -498,10 +497,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test.advancedApiTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test.advancedApiTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
       </list>
     </recent_temporary>
@@ -592,34 +591,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 44m 31s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 33m 25s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 46m 32s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 33m 46s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 50m 10s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 34m 28s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 51m 22s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 34m 50s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 52m 13s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 35m 15s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 53m 27s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 36m 27s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 53m 56s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 36m 37s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 54m 36s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 37m 02s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 56m 11s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 37m 55s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 13h 56m 43s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 14h 39m 16s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -682,8 +681,14 @@
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java</url>
+          <line>221</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="43" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1025,10 +1030,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="224" column="0" lean-forward="false" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+          <folding>
+            <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
+            <element signature="e#7712#7744#0" expanded="false" />
+            <element signature="method#returnValuesTest#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="e#9694#9712#0" expanded="false" />
+            <element signature="e#10738#10759#0" expanded="false" />
+            <element signature="e#10961#10983#0" expanded="false" />
+            <element signature="e#12851#12867#0" expanded="false" />
+            <element signature="e#13057#13076#0" expanded="false" />
+            <element signature="e#13272#13291#0" expanded="false" />
+            <element signature="e#13578#13619#0" expanded="false" />
+            <element signature="e#14190#14209#0" expanded="false" />
+            <element signature="e#14776#14814#0" expanded="false" />
+            <element signature="e#15510#15528#0" expanded="false" />
+            <element signature="e#15775#15794#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="636" column="43" lean-forward="false" selection-start-line="636" selection-start-column="43" selection-end-line="636" selection-end-column="43" />
+        <state relative-caret-position="136">
+          <caret line="610" column="54" lean-forward="false" selection-start-line="610" selection-start-column="54" selection-end-line="610" selection-end-column="54" />
           <folding>
             <element signature="method#truncate#0;class#Solution#0" expanded="false" />
             <element signature="method#drop#0;class#Solution#0" expanded="false" />
@@ -1042,38 +1072,13 @@
             <element signature="docComment;method#getStudentProfile#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
             <element signature="method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
-            <element signature="e#15074#15075#0" expanded="true" />
-            <element signature="e#15114#15115#0" expanded="true" />
-            <element signature="e#15160#15161#0" expanded="true" />
-            <element signature="e#15200#15201#0" expanded="true" />
+            <element signature="e#15177#15178#0" expanded="true" />
+            <element signature="e#15217#15218#0" expanded="true" />
+            <element signature="e#15263#15264#0" expanded="true" />
+            <element signature="e#15303#15304#0" expanded="true" />
             <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="242" column="0" lean-forward="false" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
-          <folding>
-            <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
-            <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
-            <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
-            <element signature="e#7716#7748#0" expanded="false" />
-            <element signature="method#returnValuesTest#0;class#Maman2_Test#0" expanded="false" />
-            <element signature="e#9698#9716#0" expanded="false" />
-            <element signature="e#10742#10763#0" expanded="false" />
-            <element signature="e#10965#10987#0" expanded="false" />
-            <element signature="e#12855#12871#0" expanded="false" />
-            <element signature="e#13061#13080#0" expanded="false" />
-            <element signature="e#13276#13295#0" expanded="false" />
-            <element signature="e#13582#13623#0" expanded="false" />
-            <element signature="e#14194#14213#0" expanded="false" />
-            <element signature="e#14780#14818#0" expanded="false" />
-            <element signature="e#15514#15532#0" expanded="false" />
-            <element signature="e#15779#15798#0" expanded="false" />
           </folding>
         </state>
       </provider>
