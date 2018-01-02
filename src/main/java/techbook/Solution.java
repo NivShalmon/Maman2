@@ -587,8 +587,13 @@ public class Solution {
      * input: student
      * output: an ArrayList containing the students. In case of an error, return an empty ArrayList
      */
-
     public static ArrayList<Student> getPeopleYouMayKnowList(Integer studentId) {
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("")) {
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
         return null;
     }
 
@@ -603,7 +608,46 @@ public class Solution {
      * output: an ArrayList containing the student pairs. In case of an error, return an empty ArrayList
      */
     public static ArrayList<StudentIdPair> getRemotelyConnectedPairs() {
-        return null;
+        try(Connection c = DBConnector.getConnection();
+        PreparedStatement s =c.prepareStatement("WITH RECURSIVE\n" +
+                "friendship AS (\n" +
+                "\tSELECT id1,id2\n" +
+                "\tFROM friends\n" +
+                "\tUNION\n" +
+                "\tSELECT id2,id1\n" +
+                "\tFROM friends\n" +
+                ")\n" +
+                ", find_paths(source, destination, length, path, cycle) AS\n" +
+                "(\n" +
+                "\tSELECT id1, id2, 1,ARRAY[id1],false\n" +
+                "\tFROM friendship f\n" +
+                "\tUNION ALL\n" +
+                "\tSELECT fp.source, f.id2, fp.length + 1,path || f.id1, f.id1 = ANY(path) OR f.id2 = ANY(path)\n" +
+                "\tFROM friendship f, find_paths fp\n" +
+                "\tWHERE f.id1 = fp.destination AND NOT cycle\n" +
+                ")\n" +
+                "SELECT DISTINCT source,destination\n" +
+                "FROM find_paths fp\n" +
+                "WHERE NOT cycle AND (NOT EXISTS(\n" +
+                "\tSELECT *\n" +
+                "\tFROM find_paths fp2\n" +
+                "\tWHERE ((fp.source = fp2.source AND fp.destination = fp2.destination) \n" +
+                "\tOR (fp.destination = fp2.source AND fp.source = fp2.destination))\n" +
+                "\tAND length < 5))\n" +
+                "\tAND source > destination")) {
+            ResultSet rs = s.executeQuery();
+            ArrayList<StudentIdPair> l = new ArrayList<>();
+            while(rs.next()){
+                StudentIdPair p = new StudentIdPair();
+                p.setStudentId1(rs.getInt(1));
+                p.setStudentId2(rs.getInt(2));
+                l.add(p);
+            }
+            return l;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
 
