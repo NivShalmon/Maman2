@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="518" column="25" lean-forward="true" selection-start-line="518" selection-start-column="25" selection-end-line="518" selection-end-column="25" />
+            <state relative-caret-position="34">
+              <caret line="570" column="41" lean-forward="false" selection-start-line="570" selection-start-column="41" selection-end-line="570" selection-end-column="41" />
               <folding>
                 <element signature="method#truncate#0;class#Solution#0" expanded="false" />
                 <element signature="method#drop#0;class#Solution#0" expanded="false" />
@@ -32,49 +32,18 @@
                 <element signature="docComment;method#getStudentProfile#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
                 <element signature="method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
-                <element signature="e#15056#15057#0" expanded="true" />
-                <element signature="e#15096#15097#0" expanded="true" />
-                <element signature="e#15142#15143#0" expanded="true" />
-                <element signature="e#15182#15183#0" expanded="true" />
+                <element signature="e#15074#15075#0" expanded="true" />
+                <element signature="e#15114#15115#0" expanded="true" />
+                <element signature="e#15160#15161#0" expanded="true" />
+                <element signature="e#15200#15201#0" expanded="true" />
                 <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
-                <element signature="docComment;method#getStudentFeed#0;class#Solution#0" expanded="false" />
-                <element signature="e#22042#22043#0" expanded="true" />
-                <element signature="e#22069#22070#0" expanded="true" />
-                <element signature="docComment;method#getGroupFeed#0;class#Solution#0" expanded="false" />
-                <element signature="e#22375#22376#0" expanded="true" />
-                <element signature="e#22402#22403#0" expanded="true" />
                 <element signature="docComment;method#getPeopleYouMayKnowList#0;class#Solution#0" expanded="false" />
-                <element signature="e#23047#23048#0" expanded="true" />
-                <element signature="e#23074#23075#0" expanded="true" />
+                <element signature="e#24978#24979#0" expanded="true" />
+                <element signature="e#25005#25006#0" expanded="true" />
                 <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
-                <element signature="e#23834#23835#0" expanded="true" />
-                <element signature="e#23861#23862#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Maman2_Test.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
-              <folding>
-                <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
-                <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
-                <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
-                <element signature="e#7712#7744#0" expanded="false" />
-                <element signature="e#9694#9712#0" expanded="false" />
-                <element signature="e#10738#10759#0" expanded="false" />
-                <element signature="e#10961#10983#0" expanded="false" />
-                <element signature="e#12851#12867#0" expanded="false" />
-                <element signature="e#13057#13076#0" expanded="false" />
-                <element signature="e#13272#13291#0" expanded="false" />
-                <element signature="e#14190#14209#0" expanded="false" />
-                <element signature="e#14776#14814#0" expanded="false" />
-                <element signature="e#15510#15528#0" expanded="false" />
-                <element signature="e#15775#15794#0" expanded="false" />
+                <element signature="e#25765#25766#0" expanded="true" />
+                <element signature="e#25792#25793#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -289,31 +258,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Maman2_Test.generalSuccessTest">
+  <component name="RunManager" selected="JUnit.Maman2_Test.advancedApiTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
-    </configuration>
-    <configuration name="Example" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="techbook.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="techbook.Example" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Maman2" />
-      <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -343,6 +293,31 @@
       <option name="MAIN_CLASS_NAME" value="techbook.Maman2_Test" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="Maman2_Test.advancedApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="techbook.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Maman2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="techbook" />
+      <option name="MAIN_CLASS_NAME" value="techbook.Maman2_Test" />
+      <option name="METHOD_NAME" value="advancedApiTest" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -490,19 +465,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Example" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.Maman2_Test.advancedApiTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Example" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Maman2_Test.advancedApiTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Maman2_Test.generalSuccessTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Maman2_Test.returnValuesTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.Maman2_Test" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.SimpleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -592,35 +567,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 26m 24s.xml">
+    <history-entry file="Maman2_Test_advancedApiTest - 2018.01.02 at 12h 57m 30s.xml">
+      <configuration name="Maman2_Test.advancedApiTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 49m 29s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 29m 21s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 50m 54s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 32m 55s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 51m 10s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 33m 36s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 52m 32s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 36m 01s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 52m 43s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 36m 08s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 54m 51s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 38m 19s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 56m 03s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 11h 48m 53s.xml">
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 56m 32s.xml">
       <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.02 at 11h 38m 30s.xml">
-      <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Maman2_Test_returnValuesTest - 2018.01.02 at 11h 48m 38s.xml">
-      <configuration name="Maman2_Test.returnValuesTest" configurationId="JUnit" />
+    <history-entry file="Maman2_Test_generalSuccessTest - 2018.01.02 at 12h 56m 51s.xml">
+      <configuration name="Maman2_Test.generalSuccessTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -683,24 +658,23 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java</url>
-          <line>138</line>
+          <url>file://$PROJECT_DIR$/src/main/java/techbook/Solution.java</url>
+          <line>524</line>
           <properties />
-          <option name="timeStamp" value="33" />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java</url>
+          <line>177</line>
+          <properties />
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="34" />
+      <option name="time" value="42" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="75" column="19" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Post.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -837,13 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Feed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="43" lean-forward="false" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -991,14 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/sql/ResultSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="175" column="12" lean-forward="false" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/techbook/AbstractTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -1025,10 +984,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/techbook/business/Feed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-248">
+          <caret line="175" column="12" lean-forward="false" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.0.0/postgresql-42.0.0.jar!/org/postgresql/jdbc/PgPreparedStatement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="548" column="0" lean-forward="false" selection-start-line="548" selection-start-column="0" selection-end-line="548" selection-end-column="0" />
+          <folding>
+            <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
+            <element signature="method#generalSuccessTest#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="e#7712#7744#0" expanded="false" />
+            <element signature="method#returnValuesTest#0;class#Maman2_Test#0" expanded="false" />
+            <element signature="e#9694#9712#0" expanded="false" />
+            <element signature="e#10738#10759#0" expanded="false" />
+            <element signature="e#10961#10983#0" expanded="false" />
+            <element signature="e#12851#12867#0" expanded="false" />
+            <element signature="e#13057#13076#0" expanded="false" />
+            <element signature="e#13272#13291#0" expanded="false" />
+            <element signature="e#13578#13619#0" expanded="false" />
+            <element signature="e#14190#14209#0" expanded="false" />
+            <element signature="e#14776#14814#0" expanded="false" />
+            <element signature="e#15510#15528#0" expanded="false" />
+            <element signature="e#15775#15794#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="518" column="25" lean-forward="true" selection-start-line="518" selection-start-column="25" selection-end-line="518" selection-end-column="25" />
+        <state relative-caret-position="34">
+          <caret line="570" column="41" lean-forward="false" selection-start-line="570" selection-start-column="41" selection-end-line="570" selection-end-column="41" />
           <folding>
             <element signature="method#truncate#0;class#Solution#0" expanded="false" />
             <element signature="method#drop#0;class#Solution#0" expanded="false" />
@@ -1042,47 +1051,18 @@
             <element signature="docComment;method#getStudentProfile#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
             <element signature="method#updateStudentFaculty#0;class#Solution#0" expanded="false" />
-            <element signature="e#15056#15057#0" expanded="true" />
-            <element signature="e#15096#15097#0" expanded="true" />
-            <element signature="e#15142#15143#0" expanded="true" />
-            <element signature="e#15182#15183#0" expanded="true" />
+            <element signature="e#15074#15075#0" expanded="true" />
+            <element signature="e#15114#15115#0" expanded="true" />
+            <element signature="e#15160#15161#0" expanded="true" />
+            <element signature="e#15200#15201#0" expanded="true" />
             <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
-            <element signature="docComment;method#getStudentFeed#0;class#Solution#0" expanded="false" />
-            <element signature="e#22042#22043#0" expanded="true" />
-            <element signature="e#22069#22070#0" expanded="true" />
-            <element signature="docComment;method#getGroupFeed#0;class#Solution#0" expanded="false" />
-            <element signature="e#22375#22376#0" expanded="true" />
-            <element signature="e#22402#22403#0" expanded="true" />
             <element signature="docComment;method#getPeopleYouMayKnowList#0;class#Solution#0" expanded="false" />
-            <element signature="e#23047#23048#0" expanded="true" />
-            <element signature="e#23074#23075#0" expanded="true" />
+            <element signature="e#24978#24979#0" expanded="true" />
+            <element signature="e#25005#25006#0" expanded="true" />
             <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
-            <element signature="e#23834#23835#0" expanded="true" />
-            <element signature="e#23861#23862#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/techbook/Maman2_Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
-          <folding>
-            <element signature="method#buildStudent#0;class#Maman2_Test#0" expanded="false" />
-            <element signature="method#buildPost#0;class#Maman2_Test#0" expanded="false" />
-            <element signature="method#buildPost#1;class#Maman2_Test#0" expanded="false" />
-            <element signature="e#7712#7744#0" expanded="false" />
-            <element signature="e#9694#9712#0" expanded="false" />
-            <element signature="e#10738#10759#0" expanded="false" />
-            <element signature="e#10961#10983#0" expanded="false" />
-            <element signature="e#12851#12867#0" expanded="false" />
-            <element signature="e#13057#13076#0" expanded="false" />
-            <element signature="e#13272#13291#0" expanded="false" />
-            <element signature="e#14190#14209#0" expanded="false" />
-            <element signature="e#14776#14814#0" expanded="false" />
-            <element signature="e#15510#15528#0" expanded="false" />
-            <element signature="e#15775#15794#0" expanded="false" />
+            <element signature="e#25765#25766#0" expanded="true" />
+            <element signature="e#25792#25793#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -184,7 +184,7 @@ public class Solution {
              PreparedStatement deletePosts = c.prepareStatement("DELETE FROM posts\n" +
                      String.format("WHERE author = %d", studentId));
              PreparedStatement deleteFriends = c.prepareStatement("DELETE FROM friends\n" +
-                     String.format("WHERE id1 = %d OR id2 = %d", studentId,studentId));
+                     String.format("WHERE id1 = %d OR id2 = %d", studentId, studentId));
              PreparedStatement deleteStudent = c.prepareStatement("DELETE FROM Students\n" +
                      String.format("WHERE id = %d;", studentId))) {
             deleteFromGroups.execute();
@@ -305,6 +305,15 @@ public class Solution {
         }
     }
 
+    private static Post makePost(ResultSet rs) throws SQLException {
+        Post p = new Post();
+        p.setId(rs.getInt("id"));
+        p.setAuthor(rs.getInt("author"));
+        p.setText(rs.getString("text"));
+        p.setTimeStamp(rs.getTimestamp("date"));
+        p.setLikes(rs.getInt("likesCount"));
+        return p;
+    }
 
     /**
      * returns the post by given id
@@ -313,23 +322,15 @@ public class Solution {
      */
     public static Post getPost(Integer postId) {
         try (Connection c = DBConnector.getConnection();
-             PreparedStatement getPost = c.prepareStatement("SELECT * FROM posts\n" +
-                     String.format("WHERE id = %d", postId));
-             PreparedStatement getLikes = c.prepareStatement("SELECT COUNT(postId) FROM likes\n" +
-                     String.format("WHERE postId = %d", postId))) {
+             PreparedStatement getPost = c.prepareStatement("SELECT posts.*,COUNT(likes.postId) as likesCount\n" +
+                     "FROM (posts\n" +
+                     "LEFT JOIN likes ON posts.id = likes.postId)\n" +
+                     String.format("WHERE posts.id = %d\n", postId) +
+                     "GROUP BY posts.id;")) {
             ResultSet rs = getPost.executeQuery();
             if (!rs.next())
                 return Post.badPost();
-            Post p = new Post();
-            p.setId(postId);
-            p.setAuthor(rs.getInt("author"));
-            p.setText(rs.getString("text"));
-            p.setTimeStamp(rs.getTimestamp("date"));
-            rs = getLikes.executeQuery();
-            if (!rs.next())
-                return Post.badPost();
-            p.setLikes(rs.getInt(1));
-            return p;
+            return makePost(rs);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -432,10 +433,10 @@ public class Solution {
     public static ReturnValue likePost(Integer studentId, Integer postId) {
         try (Connection c = DBConnector.getConnection();
              PreparedStatement s = c.prepareStatement("INSERT INTO likes(studentId,postId)\n" +
-                     String.format("SELECT %d,id\n",studentId) +
+                     String.format("SELECT %d,id\n", studentId) +
                      "FROM posts\n" +
                      "WHERE \n" +
-                     String.format("(groupName IS NULL AND id = %d)\n",postId) +
+                     String.format("(groupName IS NULL AND id = %d)\n", postId) +
                      "OR EXISTS\n" +
                      "(\n" +
                      "SELECT * FROM (groups\n" +
@@ -485,9 +486,9 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue joinGroup(Integer studentId, String groupName) {
-        try(Connection c = DBConnector.getConnection();
-        PreparedStatement s = c.prepareStatement("INSERT INTO groups\n" +
-                String.format("VALUES(%s,%d)",makeStringForSQL(groupName),studentId))) {
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("INSERT INTO groups\n" +
+                     String.format("VALUES(%s,%d)", makeStringForSQL(groupName), studentId))) {
             s.execute();
             return OK;
         } catch (SQLException e) {
@@ -510,9 +511,9 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue leaveGroup(Integer studentId, String groupName) {
-        try(Connection c = DBConnector.getConnection();
-            PreparedStatement s = c.prepareStatement("DELETE FROM groups\n" +
-                    String.format("WHERE name=%s AND studentID=%d",makeStringForSQL(groupName),studentId))) {
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("DELETE FROM groups\n" +
+                     String.format("WHERE name=%s AND studentID=%d", makeStringForSQL(groupName), studentId))) {
             return s.executeUpdate() > 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -520,6 +521,13 @@ public class Solution {
         }
     }
 
+    private static Feed makeFeed(ResultSet rs) throws SQLException {
+        Feed f = new Feed();
+        while (rs.next()) {
+            f.add(makePost(rs));
+        }
+        return f;
+    }
 
     /**
      * Gets a list of personal posts posted by a student and his\her friends. Feed should be ordered by date and likes, both in descending order.
@@ -527,7 +535,25 @@ public class Solution {
      * output: Feed the containing the relevant posts. In case of an error, return an empty feed
      */
     public static Feed getStudentFeed(Integer id) {
-        return null;
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("SELECT feedPosts.*,COUNT(likes.*) AS likesCount\n" +
+                     "FROM (likes\n" +
+                     "RIGHT JOIN (\n" +
+                     "SELECT posts.*\n" +
+                     "FROM ((posts\n" +
+                     "LEFT JOIN friends AS f1 ON posts.author = f1.id1\n)" +
+                     "LEFT JOIN friends AS f2 ON posts.author = f2.id2\n)" +
+                     "WHERE (posts.groupName IS NULL) AND\n" +
+                     String.format("((posts.author = %d) OR (f1.id2 = %d) OR (f2.id1 = %d)))\n", id, id, id) +
+                     "AS feedPosts\n" +
+                     "ON feedPosts.id = likes.postId)\n" +
+                     "GROUP BY feedPosts.id,feedPosts.author,feedPosts.text,feedPosts.date,feedPosts.groupName\n" +
+                     "ORDER BY feedPosts.date DESC,likesCount DESC;")) {
+            return makeFeed(s.executeQuery());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new Feed();
+        }
     }
 
     /**
@@ -537,7 +563,18 @@ public class Solution {
      */
 
     public static Feed getGroupFeed(String groupName) {
-        return null;
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("SELECT posts.*,COUNT(likes.postId) as likesCount\n" +
+                     "FROM (posts\n" +
+                     "LEFT JOIN likes ON posts.id = likes.postId)\n" +
+                     String.format("WHERE posts.groupname = %s\n", makeStringForSQL(groupName)) +
+                     "GROUP BY posts.id\n" +
+                     "ORDER BY posts.date DESC,likesCount DESC;")) {
+            return makeFeed(s.executeQuery());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new Feed();
+        }
     }
 
     /**
