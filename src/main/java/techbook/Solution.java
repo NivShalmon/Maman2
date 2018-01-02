@@ -121,19 +121,21 @@ public class Solution {
         }
     }
 
-    private static String makeStringForSQL(String s) {
-        return s == null ? "NULL" : "\'" + s + "\'";
-    }
-
     private static PreparedStatement addToGroup(int id, String group, Connection c) throws SQLException {
-        return c.prepareStatement("INSERT INTO Groups\n" +
-                String.format("VALUES(%s,%d)", makeStringForSQL(group), id));
+        PreparedStatement s = c.prepareStatement("INSERT INTO Groups\n" +
+                "VALUES(?,?)");
+        s.setString(1, group);
+        s.setInt(2, id);
+        return s;
     }
 
     private static PreparedStatement addStudentStatement(Student student, Connection c) throws SQLException {
-        return c.prepareStatement("INSERT INTO Students\n" +
-                String.format("VALUES(%d,%s,%s);", student.getId(),
-                        makeStringForSQL(student.getName()), makeStringForSQL(student.getFaculty())));
+        PreparedStatement s = c.prepareStatement("INSERT INTO Students\n" +
+                "VALUES(?,?,?);");
+        s.setInt(1, student.getId());
+        s.setString(2, student.getName());
+        s.setString(3, student.getFaculty());
+        return s;
     }
 
     /**
@@ -237,16 +239,20 @@ public class Solution {
         try (Connection c = DBConnector.getConnection();
              PreparedStatement checkFaculty = c.prepareStatement("SELECT COUNT(*)\n" +
                      "FROM students\n" +
-                     String.format("WHERE id = %d and faculty = %s", student.getId(), makeStringForSQL(student.getFaculty())));
+                     "WHERE id = ? and faculty = ?");
              PreparedStatement updateFaculty = c.prepareStatement("UPDATE students\n" +
-                     String.format("SET faculty = %s\n", makeStringForSQL(student.getFaculty())) +
-                     String.format("WHERE id = %d", student.getId()));
+                     "SET faculty = ?\n" +
+                     "WHERE id = ?");
              PreparedStatement addToFacultyGroup = addToGroup(student.getId(), student.getFaculty(), c)) {
+            checkFaculty.setInt(1, student.getId());
+            checkFaculty.setString(2, student.getFaculty());
             ResultSet rs = checkFaculty.executeQuery();
             if (!rs.next())
                 return NOT_EXISTS;
             if (rs.getInt(1) > 0)
                 return ALREADY_EXISTS;
+            updateFaculty.setString(1, student.getFaculty());
+            updateFaculty.setInt(2, student.getId());
             updateFaculty.execute();
             addToFacultyGroup.execute();
         } catch (SQLException e) {
@@ -279,21 +285,24 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue addPost(Post post, String groupName) {
-        String values = String.format("VALUES (%d,%d,%s,%s,%s)", post.getId(), post.getAuthor(),
-                makeStringForSQL(post.getText()),
-                makeStringForSQL(post.getTimeStamp() == null ? null : post.getTimeStamp().toString()),
-                makeStringForSQL(groupName));
         try (Connection c = DBConnector.getConnection();
              PreparedStatement checkInGroup = c.prepareStatement("SELECT COUNT(*)\n" +
                      "FROM groups\n" +
-                     String.format("WHERE name = %s and studentId = %d", makeStringForSQL(groupName), post.getAuthor()));
+                     "WHERE name = ? and studentId = ?");
              PreparedStatement addPost = c.prepareStatement("INSERT INTO posts\n" +
-                     values)) {
+                     "VALUES (?,?,?,?,?)")) {
             if (groupName != null) {
+                checkInGroup.setString(1, groupName);
+                checkInGroup.setInt(2, post.getAuthor());
                 ResultSet rs = checkInGroup.executeQuery();
                 if (!rs.next() || rs.getInt(1) == 0)
                     return NOT_EXISTS;
             }
+            addPost.setInt(1, post.getId());
+            addPost.setInt(2, post.getAuthor());
+            addPost.setString(3, post.getText());
+            addPost.setTimestamp(4,post.getTimeStamp());
+            addPost.setString(5, groupName);
             addPost.execute();
         } catch (SQLException e) {
             int sqlState = getSQLState(e);
@@ -376,8 +385,10 @@ public class Solution {
     public static ReturnValue updatePost(Post post) {
         try (Connection c = DBConnector.getConnection();
              PreparedStatement updatePost = c.prepareStatement("UPDATE posts\n" +
-                     String.format("SET text=%s\n", makeStringForSQL(post.getText())) +
-                     String.format("WHERE id=%d", post.getId()))) {
+                     "SET text=?\n" +
+                     "WHERE id=?")) {
+            updatePost.setString(1, post.getText());
+            updatePost.setInt(2, post.getId());
             return updatePost.executeUpdate() > 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             if (getSQLState(e) == NOT_NULL_VIOLATION.getValue())
@@ -468,7 +479,7 @@ public class Solution {
                      "(\n" +
                      "SELECT * FROM groups\n" +
                      String.format("WHERE groups.studentId = %d AND groups.name = posts.groupName)\n", studentId) +
-                     String.format(") AND id = %d",postId))) {
+                     String.format(") AND id = %d", postId))) {
             return s.executeUpdate() > 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             int sqlState = getSQLState(e);
@@ -514,7 +525,9 @@ public class Solution {
     public static ReturnValue joinGroup(Integer studentId, String groupName) {
         try (Connection c = DBConnector.getConnection();
              PreparedStatement s = c.prepareStatement("INSERT INTO groups\n" +
-                     String.format("VALUES(%s,%d)", makeStringForSQL(groupName), studentId))) {
+                     "VALUES(?,?)")) {
+            s.setString(1, groupName);
+            s.setInt(2, studentId);
             s.execute();
             return OK;
         } catch (SQLException e) {
@@ -539,7 +552,9 @@ public class Solution {
     public static ReturnValue leaveGroup(Integer studentId, String groupName) {
         try (Connection c = DBConnector.getConnection();
              PreparedStatement s = c.prepareStatement("DELETE FROM groups\n" +
-                     String.format("WHERE name=%s AND studentID=%d", makeStringForSQL(groupName), studentId))) {
+                     "WHERE name=? AND studentID=?")) {
+            s.setString(1, groupName);
+            s.setInt(2, studentId);
             return s.executeUpdate() > 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -579,7 +594,7 @@ public class Solution {
                      "AND EXISTS (\n" +
                      "\tSELECT *\n" +
                      "\tFROM friendship\n" +
-                     String.format("\tWHERE id1 = posts.author AND id2 = %d\n",id) +
+                     String.format("\tWHERE id1 = posts.author AND id2 = %d\n", id) +
                      ")\n" +
                      "GROUP BY posts.id\n" +
                      "ORDER BY posts.date DESC,likesCount DESC")) {
@@ -601,9 +616,10 @@ public class Solution {
              PreparedStatement s = c.prepareStatement("SELECT posts.*,COUNT(likes.postId) as likesCount\n" +
                      "FROM (posts\n" +
                      "LEFT JOIN likes ON posts.id = likes.postId)\n" +
-                     String.format("WHERE posts.groupname = %s\n", makeStringForSQL(groupName)) +
+                     "WHERE posts.groupname = ?\n" +
                      "GROUP BY posts.id\n" +
                      "ORDER BY posts.date DESC,likesCount DESC;")) {
+            s.setString(1, groupName);
             return makeFeed(s.executeQuery());
         } catch (SQLException e) {
             e.printStackTrace();

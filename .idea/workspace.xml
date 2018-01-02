@@ -18,19 +18,18 @@
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="134" column="30" lean-forward="false" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="30" />
+            <state relative-caret-position="68">
+              <caret line="303" column="56" lean-forward="false" selection-start-line="303" selection-start-column="56" selection-end-line="303" selection-end-column="56" />
               <folding>
                 <element signature="method#truncate#0;class#Solution#0" expanded="false" />
                 <element signature="method#drop#0;class#Solution#0" expanded="false" />
-                <element signature="method#addToGroup#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#addStudent#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#deleteStudent#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#getStudentProfile#0;class#Solution#0" expanded="false" />
-                <element signature="e#16433#16434#0" expanded="true" />
-                <element signature="e#16473#16474#0" expanded="true" />
-                <element signature="e#16519#16520#0" expanded="true" />
-                <element signature="e#16559#16560#0" expanded="true" />
+                <element signature="e#16485#16486#0" expanded="true" />
+                <element signature="e#16525#16526#0" expanded="true" />
+                <element signature="e#16571#16572#0" expanded="true" />
+                <element signature="e#16611#16612#0" expanded="true" />
                 <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
                 <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
@@ -595,15 +594,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Maman2_Test - 2018.01.02 at 19h 53m 07s.xml">
-      <configuration name="Maman2_Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Maman2_Test - 2018.01.02 at 19h 53m 26s.xml">
-      <configuration name="Maman2_Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Maman2_Test - 2018.01.02 at 19h 55m 11s.xml">
-      <configuration name="Maman2_Test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Maman2_Test - 2018.01.02 at 19h 58m 03s.xml">
       <configuration name="Maman2_Test" configurationId="JUnit" />
     </history-entry>
@@ -625,6 +615,15 @@
     <history-entry file="Maman2_Test - 2018.01.02 at 20h 11m 15s.xml">
       <configuration name="Maman2_Test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Maman2_Test - 2018.01.02 at 20h 12m 20s.xml">
+      <configuration name="Maman2_Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Maman2_Test - 2018.01.02 at 20h 14m 14s.xml">
+      <configuration name="Maman2_Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Maman2_Test - 2018.01.02 at 20h 21m 37s.xml">
+      <configuration name="Maman2_Test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -638,7 +637,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905295" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42696628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42696628" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1044,19 +1043,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/techbook/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="134" column="30" lean-forward="false" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="30" />
+        <state relative-caret-position="68">
+          <caret line="303" column="56" lean-forward="false" selection-start-line="303" selection-start-column="56" selection-end-line="303" selection-end-column="56" />
           <folding>
             <element signature="method#truncate#0;class#Solution#0" expanded="false" />
             <element signature="method#drop#0;class#Solution#0" expanded="false" />
-            <element signature="method#addToGroup#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#addStudent#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#deleteStudent#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#getStudentProfile#0;class#Solution#0" expanded="false" />
-            <element signature="e#16433#16434#0" expanded="true" />
-            <element signature="e#16473#16474#0" expanded="true" />
-            <element signature="e#16519#16520#0" expanded="true" />
-            <element signature="e#16559#16560#0" expanded="true" />
+            <element signature="e#16485#16486#0" expanded="true" />
+            <element signature="e#16525#16526#0" expanded="true" />
+            <element signature="e#16571#16572#0" expanded="true" />
+            <element signature="e#16611#16612#0" expanded="true" />
             <element signature="docComment;method#makeAsFriends#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#makeAsNotFriends#0;class#Solution#0" expanded="false" />
             <element signature="docComment;method#getRemotelyConnectedPairs#0;class#Solution#0" expanded="false" />
