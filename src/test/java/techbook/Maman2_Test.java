@@ -1,5 +1,6 @@
 package techbook;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import techbook.business.*;
 
@@ -467,6 +468,7 @@ public class Maman2_Test extends AbstractTest{
     }
 
     @Test
+    @Ignore
     //check advanced API functions, also kind of a stress test
     public void advancedApiTest(){
         //build database

@@ -55,23 +55,25 @@ public class Solution {
                      "    author integer,\n" +
                      "    text text NOT NULL,\n" +
                      "    date TIMESTAMP NOT NULL,\n" +
+                     "    groupName text NULL," +
                      "    PRIMARY KEY (id),\n" +
                      "    CHECK (id > 0),\n" +
-                     "    FOREIGN KEY (author) REFERENCES Students(id)\n" +
+                     "    FOREIGN KEY (author) REFERENCES Students(id),\n" +
+                     "    FOREIGN KEY (groupName,author) REFERENCES Groups(name,studentId)\n" +
                      ")");
-             PreparedStatement postedInGroup = c.prepareStatement("CREATE TABLE postedInGroup\n" +
+             PreparedStatement likes = c.prepareStatement("CREATE TABLE likes\n" +
                      "(\n" +
-                     "    postId integer,\n" +
-                     "    groupName text,\n" +
                      "    studentId integer,\n" +
+                     "    postId integer,\n" +
+                     "    FOREIGN KEY (studentId) REFERENCES Students(id),\n" +
                      "    FOREIGN KEY (postId) REFERENCES posts(id),\n" +
-                     "    FOREIGN KEY (groupName,studentId) REFERENCES Groups(name,studentId)\n" +
+                     "    PRIMARY KEY (studentId,postId)\n" +
                      ")")) {
             student.execute();
             groups.execute();
             friends.execute();
             posts.execute();
-            postedInGroup.execute();
+            likes.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -87,12 +89,12 @@ public class Solution {
              PreparedStatement groups = truncate("Groups", c);
              PreparedStatement friends = truncate("Friends", c);
              PreparedStatement posts = truncate("posts", c);
-             PreparedStatement postedInGroup = truncate("postedInGroup", c)) {
+             PreparedStatement likes = truncate("likes", c)) {
             groups.execute();
             student.execute();
             friends.execute();
             posts.execute();
-            postedInGroup.execute();
+            likes.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -108,12 +110,12 @@ public class Solution {
              PreparedStatement groups = drop("Groups", c);
              PreparedStatement friends = drop("Friends", c);
              PreparedStatement posts = drop("posts", c);
-             PreparedStatement postedInGroup = drop("postedInGroup", c)) {
+             PreparedStatement likes = drop("likes", c)) {
             groups.execute();
             student.execute();
             friends.execute();
             posts.execute();
-            postedInGroup.execute();
+            likes.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -196,7 +198,8 @@ public class Solution {
              PreparedStatement s = c.prepareStatement("SELECT * FROM Students\n" +
                      String.format("WHERE id=%d;", studentId))) {
             ResultSet rs = s.executeQuery();
-            rs.next();
+            if (!rs.next())
+                return Student.badStudent();
             Student std = new Student();
             std.setId(studentId);
             std.setName(rs.getString("name"));
@@ -250,23 +253,11 @@ public class Solution {
     public static ReturnValue addPost(Post post, String groupName) {
         try (Connection c = DBConnector.getConnection();
              PreparedStatement addPost = c.prepareStatement("INSERT INTO posts\n" +
-                     String.format("VALUES (%d,%d,%s,%s)", post.getId(), post.getAuthor(),
+                     String.format("VALUES (%d,%d,%s,%s,%s)", post.getId(), post.getAuthor(),
                              makeStringForSQL(post.getText()),
-                             makeStringForSQL(post.getTimeStamp() == null ? null : post.getTimeStamp().toString())));
-             PreparedStatement postToGroup = c.prepareStatement("INSERT INTO postedInGroup\n" +
-                     String.format("VALUES (%d,%s,%d)",post.getId(),makeStringForSQL(groupName),post.getAuthor()));
-             PreparedStatement isInGroup = c.prepareStatement("SELECT COUNT(studentId)\n" +
-                     "FROM Groups\n" +
-                     String.format("WHERE studentId = %d AND name=%s",post.getAuthor(),makeStringForSQL(groupName)))) {
-            if (groupName != null){//we need to make sure user is a member of the group
-                ResultSet rs = isInGroup.executeQuery();
-                rs.next();
-                if(rs.getInt(1) == 0){
-                    return NOT_EXISTS;
-                }
-            }
+                             makeStringForSQL(post.getTimeStamp() == null ? null : post.getTimeStamp().toString()),
+                             makeStringForSQL(groupName)))) {
             addPost.execute();
-            postToGroup.execute();
         } catch (SQLException e) {
             int sqlState = getSQLState(e);
             if (sqlState == CHECK_VIOLATION.getValue() || sqlState == NOT_NULL_VIOLATION.getValue())
@@ -291,13 +282,14 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue deletePost(Integer postId) {
-        try (Connection c = DBConnector.getConnection();) {
-
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement deletePost = c.prepareStatement("DELETE FROM posts\n" +
+                     String.format("WHERE id = %d", postId))) {
+            return deletePost.executeUpdate() > 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             e.printStackTrace();
             return ERROR;
         }
-        return OK;
     }
 
 
@@ -307,8 +299,28 @@ public class Solution {
      * output: Post if the post exists. BadPost otherwise
      */
     public static Post getPost(Integer postId) {
-
-        return null;
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement getPost = c.prepareStatement("SELECT * FROM posts\n" +
+                     String.format("WHERE id = %d", postId));
+             PreparedStatement getLikes = c.prepareStatement("SELECT COUNT(postId) FROM likes\n" +
+                     String.format("WHERE postId = %d", postId))) {
+            ResultSet rs = getPost.executeQuery();
+            if (!rs.next())
+                return Post.badPost();
+            Post p = new Post();
+            p.setId(postId);
+            p.setAuthor(rs.getInt("author"));
+            p.setText(rs.getString("text"));
+            p.setTimeStamp(rs.getTimestamp("date"));
+            rs = getLikes.executeQuery();
+            if (!rs.next())
+                return Post.badPost();
+            p.setLikes(rs.getInt(1));
+            return p;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Post.badPost();
     }
 
     /**
@@ -321,8 +333,17 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue updatePost(Post post) {
-
-        return null;
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement updatePost = c.prepareStatement("UPDATE posts\n" +
+                     String.format("SET text=%s\n", makeStringForSQL(post.getText())) +
+                     String.format("WHERE id=%d", post.getId()))) {
+            return updatePost.executeUpdate() > 0 ? OK : NOT_EXISTS;
+        } catch (SQLException e) {
+            if (getSQLState(e) == NOT_NULL_VIOLATION.getValue())
+                return BAD_PARAMS;
+            e.printStackTrace();
+            return ERROR;
+        }
     }
 
     private static int max(int i1, int i2) {
