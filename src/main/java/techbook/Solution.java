@@ -48,7 +48,7 @@ public class Solution {
                      "    FOREIGN KEY (id1) REFERENCES Students(id),\n" +
                      "    FOREIGN KEY (id2) REFERENCES Students(id),\n" +
                      "    CHECK (id1 > id2)," +
-                     "    UNIQUE(id1,id2)\n" +
+                     "    PRIMARY KEY(id1,id2)\n" +
                      ")");
              PreparedStatement posts = c.prepareStatement("CREATE TABLE posts\n" +
                      "(\n" +
@@ -59,8 +59,7 @@ public class Solution {
                      "    groupName text NULL," +
                      "    PRIMARY KEY (id),\n" +
                      "    CHECK (id > 0),\n" +
-                     "    FOREIGN KEY (author) REFERENCES Students(id),\n" +
-                     "    FOREIGN KEY (groupName,author) REFERENCES Groups(name,studentId)\n" +
+                     "    FOREIGN KEY (author) REFERENCES Students(id)\n" +
                      ")");
              PreparedStatement likes = c.prepareStatement("CREATE TABLE likes\n" +
                      "(\n" +
@@ -91,8 +90,8 @@ public class Solution {
              PreparedStatement friends = truncate("Friends", c);
              PreparedStatement posts = truncate("posts", c);
              PreparedStatement likes = truncate("likes", c)) {
-            groups.execute();
             student.execute();
+            groups.execute();
             friends.execute();
             posts.execute();
             likes.execute();
@@ -112,8 +111,8 @@ public class Solution {
              PreparedStatement friends = drop("Friends", c);
              PreparedStatement posts = drop("posts", c);
              PreparedStatement likes = drop("likes", c)) {
-            groups.execute();
             student.execute();
+            groups.execute();
             friends.execute();
             posts.execute();
             likes.execute();
@@ -236,8 +235,20 @@ public class Solution {
      */
     public static ReturnValue updateStudentFaculty(Student student) {
         try (Connection c = DBConnector.getConnection();
-             PreparedStatement addToFaculty = addToGroup(student.getId(), student.getFaculty(), c)) {
-            addToFaculty.execute();
+             PreparedStatement checkFaculty = c.prepareStatement("SELECT COUNT(*)\n" +
+                     "FROM students\n" +
+                     String.format("WHERE id = %d and faculty = %s", student.getId(), makeStringForSQL(student.getFaculty())));
+             PreparedStatement updateFaculty = c.prepareStatement("UPDATE students\n" +
+                     String.format("SET faculty = %s\n", makeStringForSQL(student.getFaculty())) +
+                     String.format("WHERE id = %d", student.getId()));
+             PreparedStatement addToFacultyGroup = addToGroup(student.getId(), student.getFaculty(), c)) {
+            ResultSet rs = checkFaculty.executeQuery();
+            if (!rs.next())
+                return NOT_EXISTS;
+            if (rs.getInt(1) > 0)
+                return ALREADY_EXISTS;
+            updateFaculty.execute();
+            addToFacultyGroup.execute();
         } catch (SQLException e) {
             int sqlState = getSQLState(e);
             if (sqlState == FOREIGN_KEY_VIOLATION.getValue())
@@ -245,7 +256,11 @@ public class Solution {
             if (sqlState == NOT_NULL_VIOLATION.getValue())
                 return BAD_PARAMS;
             if (sqlState == UNIQUE_VIOLATION.getValue())
-                return ALREADY_EXISTS;
+                /*this means the user was added to get group beforehand
+                 *but was not in the faculty until now*/
+                return OK;
+
+            e.printStackTrace();
             return ERROR;
         }
         return OK;
@@ -264,12 +279,21 @@ public class Solution {
      * ERROR in case of database error
      */
     public static ReturnValue addPost(Post post, String groupName) {
+        String values = String.format("VALUES (%d,%d,%s,%s,%s)", post.getId(), post.getAuthor(),
+                makeStringForSQL(post.getText()),
+                makeStringForSQL(post.getTimeStamp() == null ? null : post.getTimeStamp().toString()),
+                makeStringForSQL(groupName));
         try (Connection c = DBConnector.getConnection();
+             PreparedStatement checkInGroup = c.prepareStatement("SELECT COUNT(*)\n" +
+                     "FROM groups\n" +
+                     String.format("WHERE name = %s and studentId = %d", makeStringForSQL(groupName), post.getAuthor()));
              PreparedStatement addPost = c.prepareStatement("INSERT INTO posts\n" +
-                     String.format("VALUES (%d,%d,%s,%s,%s)", post.getId(), post.getAuthor(),
-                             makeStringForSQL(post.getText()),
-                             makeStringForSQL(post.getTimeStamp() == null ? null : post.getTimeStamp().toString()),
-                             makeStringForSQL(groupName)))) {
+                     values)) {
+            if (groupName != null) {
+                ResultSet rs = checkInGroup.executeQuery();
+                if (!rs.next() || rs.getInt(1) == 0)
+                    return NOT_EXISTS;
+            }
             addPost.execute();
         } catch (SQLException e) {
             int sqlState = getSQLState(e);
@@ -438,14 +462,13 @@ public class Solution {
              PreparedStatement s = c.prepareStatement("INSERT INTO likes(studentId,postId)\n" +
                      String.format("SELECT %d,id\n", studentId) +
                      "FROM posts\n" +
-                     "WHERE \n" +
-                     String.format("(groupName IS NULL AND id = %d)\n", postId) +
+                     "WHERE (\n" +
+                     "(groupName IS NULL)\n" +
                      "OR EXISTS\n" +
                      "(\n" +
-                     "SELECT * FROM (groups\n" +
-                     "INNER JOIN posts ON groups.name = posts.groupName)\n" +
-                     String.format("WHERE groups.studentId = %d AND posts.id = %d\n", studentId, postId) +
-                     ");")) {
+                     "SELECT * FROM groups\n" +
+                     String.format("WHERE groups.studentId = %d AND groups.name = posts.groupName)\n", studentId) +
+                     String.format(") AND id = %d",postId))) {
             return s.executeUpdate() > 0 ? OK : NOT_EXISTS;
         } catch (SQLException e) {
             int sqlState = getSQLState(e);
@@ -539,19 +562,27 @@ public class Solution {
      */
     public static Feed getStudentFeed(Integer id) {
         try (Connection c = DBConnector.getConnection();
-             PreparedStatement s = c.prepareStatement("SELECT feedPosts.*,COUNT(likes.*) AS likesCount\n" +
-                     "FROM (likes\n" +
-                     "RIGHT JOIN (\n" +
-                     "SELECT posts.*\n" +
-                     "FROM ((posts\n" +
-                     "LEFT JOIN friends AS f1 ON posts.author = f1.id1\n)" +
-                     "LEFT JOIN friends AS f2 ON posts.author = f2.id2\n)" +
-                     "WHERE (posts.groupName IS NULL) AND\n" +
-                     String.format("((posts.author = %d) OR (f1.id2 = %d) OR (f2.id1 = %d)))\n", id, id, id) +
-                     "AS feedPosts\n" +
-                     "ON feedPosts.id = likes.postId)\n" +
-                     "GROUP BY feedPosts.id,feedPosts.author,feedPosts.text,feedPosts.date,feedPosts.groupName\n" +
-                     "ORDER BY feedPosts.date DESC,likesCount DESC;")) {
+             PreparedStatement s = c.prepareStatement("WITH friendship AS (\n" +
+                     "\tSELECT id1,id2\n" +
+                     "\tFROM friends\n" +
+                     "\tUNION\n" +
+                     "\tSELECT id2,id1\n" +
+                     "\tFROM friends\n" +
+                     ")\n" +
+                     "SELECT posts.*,COUNT(likes.*) AS likesCount\n" +
+                     "FROM (posts\n" +
+                     "\tLEFT JOIN \n" +
+                     "\tlikes\n" +
+                     "\tON posts.id = likes.postID\n" +
+                     ")\n" +
+                     "WHERE (posts.groupName IS NULL)\n" +
+                     "AND EXISTS (\n" +
+                     "\tSELECT *\n" +
+                     "\tFROM friendship\n" +
+                     String.format("\tWHERE id1 = posts.author AND id2 = %d\n",id) +
+                     ")\n" +
+                     "GROUP BY posts.id\n" +
+                     "ORDER BY posts.date DESC,likesCount DESC")) {
             return makeFeed(s.executeQuery());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -621,7 +652,7 @@ public class Solution {
                      "\tINNER JOIN\n" +
                      "\thaveSharedFriend f\n" +
                      "\tON s.id = f.source)\n" +
-                     String.format("WHERE f.destination = %d\n",studentId) +
+                     String.format("WHERE f.destination = %d\n", studentId) +
                      "AND EXISTS (\n" +
                      "\tSELECT *\n" +
                      "\tFROM groups A, groups B\n" +
@@ -630,7 +661,7 @@ public class Solution {
                      "\tAND A.name = B.name)")) {
             ArrayList<Student> l = new ArrayList<>();
             ResultSet rs = s.executeQuery();
-            while(rs.next())
+            while (rs.next())
                 l.add(makeStudent(rs));
             return l;
         } catch (SQLException e) {
@@ -651,36 +682,36 @@ public class Solution {
      * output: an ArrayList containing the student pairs. In case of an error, return an empty ArrayList
      */
     public static ArrayList<StudentIdPair> getRemotelyConnectedPairs() {
-        try(Connection c = DBConnector.getConnection();
-        PreparedStatement s =c.prepareStatement("WITH RECURSIVE\n" +
-                "friendship AS (\n" +
-                "\tSELECT id1,id2\n" +
-                "\tFROM friends\n" +
-                "\tUNION\n" +
-                "\tSELECT id2,id1\n" +
-                "\tFROM friends\n" +
-                ")\n" +
-                ", find_paths(source, destination, length, path, cycle) AS\n" +
-                "(\n" +
-                "\tSELECT id1, id2, 1,ARRAY[id1],false\n" +
-                "\tFROM friendship f\n" +
-                "\tUNION ALL\n" +
-                "\tSELECT fp.source, f.id2, fp.length + 1,path || f.id1, f.id1 = ANY(path) OR f.id2 = ANY(path)\n" +
-                "\tFROM friendship f, find_paths fp\n" +
-                "\tWHERE f.id1 = fp.destination AND NOT cycle\n" +
-                ")\n" +
-                "SELECT DISTINCT source,destination\n" +
-                "FROM find_paths fp\n" +
-                "WHERE NOT cycle AND (NOT EXISTS(\n" +
-                "\tSELECT *\n" +
-                "\tFROM find_paths fp2\n" +
-                "\tWHERE ((fp.source = fp2.source AND fp.destination = fp2.destination) \n" +
-                "\tOR (fp.destination = fp2.source AND fp.source = fp2.destination))\n" +
-                "\tAND length < 5))\n" +
-                "\tAND source > destination")) {
+        try (Connection c = DBConnector.getConnection();
+             PreparedStatement s = c.prepareStatement("WITH RECURSIVE\n" +
+                     "friendship AS (\n" +
+                     "\tSELECT id1,id2\n" +
+                     "\tFROM friends\n" +
+                     "\tUNION\n" +
+                     "\tSELECT id2,id1\n" +
+                     "\tFROM friends\n" +
+                     ")\n" +
+                     ", find_paths(source, destination, length, path, cycle) AS\n" +
+                     "(\n" +
+                     "\tSELECT id1, id2, 1,ARRAY[id1],false\n" +
+                     "\tFROM friendship f\n" +
+                     "\tUNION ALL\n" +
+                     "\tSELECT fp.source, f.id2, fp.length + 1,path || f.id1, f.id1 = ANY(path) OR f.id2 = ANY(path)\n" +
+                     "\tFROM friendship f, find_paths fp\n" +
+                     "\tWHERE f.id1 = fp.destination AND NOT cycle\n" +
+                     ")\n" +
+                     "SELECT DISTINCT source,destination\n" +
+                     "FROM find_paths fp\n" +
+                     "WHERE NOT cycle AND NOT EXISTS(\n" +
+                     "\tSELECT *\n" +
+                     "\tFROM find_paths fp2\n" +
+                     "\tWHERE fp.source = fp2.source\n" +
+                     "AND fp.destination = fp2.destination\n" +
+                     "\tAND length < 5)\n" +
+                     "\tAND source > destination")) {
             ResultSet rs = s.executeQuery();
             ArrayList<StudentIdPair> l = new ArrayList<>();
-            while(rs.next()){
+            while (rs.next()) {
                 StudentIdPair p = new StudentIdPair();
                 p.setStudentId1(rs.getInt(1));
                 p.setStudentId2(rs.getInt(2));
