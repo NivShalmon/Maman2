@@ -604,7 +604,7 @@ public class Solution {
                      "\tUNION ALL\n" +
                      "\tSELECT fp.source, f.id2, fp.length + 1,path || f.id1, f.id1 = ANY(path) OR f.id2 = ANY(path)\n" +
                      "\tFROM friendship f, find_paths fp\n" +
-                     "\tWHERE f.id1 = fp.destination AND NOT cycle\n" +
+                     "\tWHERE f.id1 = fp.destination AND NOT cycle AND length <= 2\n" +
                      "), haveSharedFriend AS (\n" +
                      "\tSELECT source, destination\n" +
                      "\tFROM find_paths fp\n" +
